@@ -2,10 +2,8 @@
 
 ## Process Points 1 Milestone
 ---
-- **Project Skeleton Files** | **Owner:** rmcantre, **Due:** 3/25, **Status:** Pending
-- **ISwapList Interface (8 methods and fields)** | **Owner:** _____, **Due:** 3/25, **Status:** Pending
+- **Project Skeleton Files** | **Owner:** rmcantre, **Due:** 3/25, **Status:** Done
 - **SwapList Class (14 methods and fields)** | **Owner:** _____, **Due:** 3/25, **Status:** Pending
-- **ISortedList Interface (5 methods and fields)** | **Owner:** _____, **Due:** 3/25, **Status:** Pending
 - **SortedList Class (11 methods and fields)** | **Owner:** _____, **Due:** 3/25, **Status:** Pending
 - **Task Class (18 methods and fields)** | **Owner:** _____, **Due:** 3/26, **Status:** Pending
 - **AbstractTaskList Class (12 methods and fields)** | **Owner:** _____, **Due:** 3/26, **Status:** Pending
