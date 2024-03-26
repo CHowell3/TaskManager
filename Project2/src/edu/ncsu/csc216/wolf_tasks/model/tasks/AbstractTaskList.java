@@ -39,7 +39,7 @@ public abstract class AbstractTaskList {
 	 * @return the task list name
 	 */
 	public String getTaskListName() {
-		return "";
+		return taskListName;
 	}
 
 	/**
