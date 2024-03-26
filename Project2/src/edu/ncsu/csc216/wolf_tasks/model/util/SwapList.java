@@ -1,53 +1,68 @@
 package edu.ncsu.csc216.wolf_tasks.model.util;
 
 public class SwapList<E> implements ISwapList<E>{
+	
+	private static final int INITIAL_CAPACITY = 10;
+	
+	private E[] list;
+	
+	private int size;
 
-	@Override
-	public void add(Object element) {
-		// TODO Auto-generated method stub
+	public SwapList() {
 		
 	}
 
+	@Override
+	public void add(E element) {
+		
+	}
+	
+	private void checkCapacity(int a) {
+		
+	}
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public E remove(int idx) {
-		// TODO Auto-generated method stub
-		return null;
+		return (E) "index";
 	}
-
+	
+	private void checkIndex(int idx) {
+		
+	}
+	
 	@Override
 	public void moveUp(int idx) {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public void moveDown(int idx) {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public void moveToFront(int idx) {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public void moveToBack(int idx) {
-		// TODO Auto-generated method stub
 		
 	}
-
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public E get(int idx) {
-		// TODO Auto-generated method stub
-		return null;
+		return (E) "index";
 	}
-
+	
 	@Override
 	public int size() {
-		// TODO Auto-generated method stub
-		return 0;
+		return 3;
 	}
+	
 
+	
+	
 }
