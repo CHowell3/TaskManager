@@ -185,11 +185,11 @@ public class WolfTasksGUI extends JFrame implements ActionListener {
 				if (notebook != null && notebook.isChanged()) {
 					int select = JOptionPane.showConfirmDialog(null, "Current Notebook is unsaved. Would you like to save before creating a new Notebook?", "Warning", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
 					if (select == 1) {
-						notebook = NotebookReader.readNodebookFile(new File(getFileName(true)));
+						notebook = NotebookReader.readNotebookFile(new File(getFileName(true)));
 						pnlTaskList.updateTaskLists();
 					}
 				} else {
-					notebook = NotebookReader.readNodebookFile(new File(getFileName(true)));
+					notebook = NotebookReader.readNotebookFile(new File(getFileName(true)));
 					pnlTaskList.updateTaskLists();
 				}
 			} catch (IllegalArgumentException iae) {
