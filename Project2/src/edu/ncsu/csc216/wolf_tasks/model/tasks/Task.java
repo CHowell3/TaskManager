@@ -115,7 +115,10 @@ public class Task implements Cloneable{
 	 * @throws CloneNotSupportedException if taskLists is empty
 	 */
 	@Override
-	public Task clone() {
+	public Task clone() throws CloneNotSupportedException{
+		if(taskLists.size() == 0) {
+			throw new CloneNotSupportedException("Cannot clone.");
+		}		
 		Task task = new Task(taskName, taskDescription, active, recurring);
 		task.taskLists = new SwapList<AbstractTaskList>();
 		return task;
