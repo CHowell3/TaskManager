@@ -19,7 +19,7 @@ public class NotebookReader {
 	 * @param file the file to load from
 	 * @return the Notebook loaded from the file
 	 */
-	public static Notebook readNotebookFile(File file) {
+	public static Notebook readNodebookFile(File file) {
 		processTaskList("");
 		return null;
 	}
