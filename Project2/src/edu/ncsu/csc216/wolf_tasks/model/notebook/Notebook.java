@@ -61,7 +61,7 @@ public class Notebook {
 		
 	}
 	
-	public void removeTaskList(String list) {
+	public void removeTaskList() {
 		
 	}
 	
