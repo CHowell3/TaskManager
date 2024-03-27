@@ -10,7 +10,9 @@ public class NotebookWriter {
 	/**
 	 * Constructor for NotebookWriter. Since all methods are static, this should not usually be used.
 	 */
-	public NotebookWriter() {}
+	public NotebookWriter() {
+		// Constructor intentionally left empty
+	}
 
 	/**
 	 * Writes a Notebook to a file. Uses the Task.toString() method.
@@ -21,7 +23,7 @@ public class NotebookWriter {
 	 * @throws IllegalArgumentException in the case of any errors or exceptions
 	 */
 	public static void writeNotebookFile(File file, String notebookName, ISortedList<TaskList> taskLists) {
-		
+		//TODO: Implement method
 	}
 
 }

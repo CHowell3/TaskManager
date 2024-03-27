@@ -12,7 +12,9 @@ public class NotebookReader {
 	/**
 	 * Constructor for NotebookReader. Since all methods are static, this should not usually be used.
 	 */
-	public NotebookReader() {}
+	public NotebookReader() {
+		// Constructor intentionally left empty
+	}
 	
 	/**
 	 * Loads a Notebook object from the file provided.
