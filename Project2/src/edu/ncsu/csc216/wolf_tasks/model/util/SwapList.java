@@ -5,7 +5,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  * @param <E> the elements in the swapList
  * @author Johnathan Howell
  */
-public class SwapList<E> implements ISwapList<E>{
+public class SwapList<E> implements ISwapList<E> {
 	
 	/** 10 is the initial capcity of the swapList */
 	private static final int INITIAL_CAPACITY = 10;
@@ -27,7 +27,7 @@ public class SwapList<E> implements ISwapList<E>{
 
 	/**
 	 * Method that adds the element passed as parameter to the swapList
-	 * @param E element that is added
+	 * @param element that is added
 	 */
 	@Override
 	public void add(E element) {

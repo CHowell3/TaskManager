@@ -4,6 +4,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test for SortedList class.
+ */
 public class SortedListTest {
 
 	/**
