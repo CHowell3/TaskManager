@@ -14,31 +14,31 @@ public class Notebook {
 	
 	
 	public Notebook(String name) {
-		
+		setNotebookName(name);
 	}
 	
 	public void saveNotebook(File file) {
-		
+		//TODO: implement method
 	}
 	
 	public String getNotebookName() {
-		return "";
+		return notebookName;
 	}
 
 	private void setNotebookName(String name) {
-		
+		//TODO: implement method
 	}
 	
 	public boolean isChanged() {
-		return true;
+		return isChanged;
 	}
 	
 	public void setChanged(boolean b) {
-		
+		//TODO: implement method
 	}
 	
 	public void addTaskList(TaskList t) {
-		
+		//TODO: implement method
 	}
 	
 	public String[] getTaskListsNames() {
@@ -46,31 +46,32 @@ public class Notebook {
 	}
 	
 	private void getActiveTaskList() {
-		
+		//TODO: implement method
 	}
 	
 	public void setCurrentTaskList(String list) {
-		
+		//TODO: implement method
 	}
 	
 	public AbstractTaskList getCurrentTaskList() {
+		getActiveTaskList();
 		return null;
 	}
 	
 	public void editTaskList(String list) {
-		
+		//TODO: implement method
 	}
 	
 	public void removeTaskList() {
-		
+		//TODO: implement method
 	}
 	
 	public void addTask(Task t) {
-		
+		//TODO: implement method
 	}
 	
 	public void editTask(int x, String s, String y, boolean b, boolean p) {
-		
+		//TODO: implement method
 	}
 }
 

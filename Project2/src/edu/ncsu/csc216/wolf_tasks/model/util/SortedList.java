@@ -5,11 +5,11 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	private int size;
 	
 	public SortedList() {
-		
+		//TODO: implement method
 	}
 	
 	public void add(E element) {
-		
+		//TODO: implement method
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -18,10 +18,11 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	}
 	
 	private void checkIndex(int idx) {
-		
+		//TODO: implement method
 	}
 	
 	public boolean contains(E element) {
+		checkIndex(0);
 		return true;
 	}
 	
@@ -31,6 +32,6 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	}
 	
 	public int size() {
-		return 5;
+		return size;
 	}
 }

@@ -8,47 +8,51 @@ public class SwapList<E> implements ISwapList<E>{
 	
 	private int size;
 
+	@SuppressWarnings("unchecked")
 	public SwapList() {
-		
+		list = (E[]) new Object[INITIAL_CAPACITY];
 	}
 
 	@Override
 	public void add(E element) {
-		
+		checkCapacity(0);
+		//TODO: implement method
 	}
 	
 	private void checkCapacity(int a) {
-		
+		//TODO: implement method
 	}
 	
 	@SuppressWarnings("unchecked")
 	@Override
 	public E remove(int idx) {
+		checkIndex(idx);
 		return (E) "index";
 	}
 	
 	private void checkIndex(int idx) {
-		
+		add(list[0]);
+		//TODO: implement method
 	}
 	
 	@Override
 	public void moveUp(int idx) {
-		
+		//TODO: implement method
 	}
 	
 	@Override
 	public void moveDown(int idx) {
-		
+		//TODO: implement method
 	}
 	
 	@Override
 	public void moveToFront(int idx) {
-		
+		//TODO: implement method
 	}
 	
 	@Override
 	public void moveToBack(int idx) {
-		
+		//TODO: implement method
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -59,10 +63,6 @@ public class SwapList<E> implements ISwapList<E>{
 	
 	@Override
 	public int size() {
-		return 3;
+		return size;
 	}
-	
-
-	
-	
 }

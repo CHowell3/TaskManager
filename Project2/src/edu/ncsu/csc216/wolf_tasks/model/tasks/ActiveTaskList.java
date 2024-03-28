@@ -21,7 +21,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void addTask(Task t) {
-		
+		//TODO: implement method
 	}
 	
 	/**
@@ -31,7 +31,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void setTaskListName(String s) {
-		
+		//TODO: implement method
 	}
 	
 	/**
@@ -49,7 +49,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 * Clears the Active Tasks list of all tasks.
 	 */
 	public void clearTasks() {
-		
+		//TODO: implement method
 	}
 
 }
