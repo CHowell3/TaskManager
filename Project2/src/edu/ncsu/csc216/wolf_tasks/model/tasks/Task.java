@@ -3,7 +3,12 @@ package edu.ncsu.csc216.wolf_tasks.model.tasks;
 import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
 
-public class Task implements Cloneable{
+/**
+ * Models individual tasks and stores their names, descriptions, and properties (active and recurring).
+ * Also keeps an ISwapList of all the TaskLists this task belongs to.
+ * Task implements the Cloneable interface. However, if the task does not belong to any TaskLists, an this method throws an exception.
+ */
+public class Task implements Cloneable {
 	
 	/**
 	 * The task's name.
@@ -40,7 +45,7 @@ public class Task implements Cloneable{
 	 * @param active if the task is active
 	 */
 	public Task(String taskName, String taskDetails, boolean recurring, boolean active){
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -57,7 +62,7 @@ public class Task implements Cloneable{
 	 * @throws IllegalArgumentException if passed a null value or an empty string
 	 */
 	public void setTaskName(String taskName) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -74,7 +79,7 @@ public class Task implements Cloneable{
 	 * @throws IllegalArgumentException if passed a null value
 	 */
 	public void setTaskDescription(String taskDescription) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 
 	/**
@@ -141,7 +146,7 @@ public class Task implements Cloneable{
 	 * @throws IllegalArgumentException if passed a null value.
 	 */
 	public void addTaskList(AbstractTaskList taskList) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -159,6 +164,6 @@ public class Task implements Cloneable{
 	 * If the task is recurring, a clone of the task is added to each taskList.
 	 */
 	public void completeTask() {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 }
