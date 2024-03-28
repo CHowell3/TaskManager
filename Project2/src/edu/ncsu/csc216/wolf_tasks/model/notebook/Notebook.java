@@ -18,7 +18,7 @@ public class Notebook {
 	}
 	
 	public void saveNotebook(File file) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public String getNotebookName() {
@@ -26,19 +26,20 @@ public class Notebook {
 	}
 
 	private void setNotebookName(String name) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public boolean isChanged() {
+		// Method not yet implemented
 		return isChanged;
 	}
 	
 	public void setChanged(boolean b) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public void addTaskList(TaskList t) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public String[] getTaskListsNames() {
@@ -46,11 +47,11 @@ public class Notebook {
 	}
 	
 	private void getActiveTaskList() {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public void setCurrentTaskList(String list) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public AbstractTaskList getCurrentTaskList() {
@@ -59,19 +60,19 @@ public class Notebook {
 	}
 	
 	public void editTaskList(String list) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public void removeTaskList() {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public void addTask(Task t) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	public void editTask(int x, String s, String y, boolean b, boolean p) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 }
 

@@ -5,7 +5,7 @@ package edu.ncsu.csc216.wolf_tasks.model.tasks;
  * Holds a list of tasks in an ISwapList.
  * @author Rachel Cantrell
  */
-public class TaskList extends AbstractTaskList implements Comparable<TaskList>{
+public class TaskList extends AbstractTaskList implements Comparable<TaskList> {
 
 	/**
 	 * Constructor for TaskList. Calls the constructor of the superclass and does nothing else.

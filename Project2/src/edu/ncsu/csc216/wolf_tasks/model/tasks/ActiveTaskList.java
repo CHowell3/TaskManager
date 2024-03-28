@@ -1,5 +1,9 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
+/**
+ * Class that models the active task list.
+ * Has a fixed name, "Active Tasks". All the active tasks are automatically added to it. 
+ */
 public class ActiveTaskList extends AbstractTaskList {
 	
 	/**
@@ -21,7 +25,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void addTask(Task t) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -31,7 +35,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void setTaskListName(String s) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -49,7 +53,7 @@ public class ActiveTaskList extends AbstractTaskList {
 	 * Clears the Active Tasks list of all tasks.
 	 */
 	public void clearTasks() {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 
 }

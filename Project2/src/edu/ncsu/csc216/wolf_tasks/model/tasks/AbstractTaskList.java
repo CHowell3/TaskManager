@@ -31,7 +31,7 @@ public abstract class AbstractTaskList {
 	 * @throws IllegalArgumentException if the name is null, an empty string, or if completedCount is less than zero.
 	 */
 	public AbstractTaskList(String taskListName, int completedCount) {
-		this.taskListName= taskListName; 
+		this.taskListName = taskListName; 
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public abstract class AbstractTaskList {
 	 * @param taskListName the new name of the taskList
 	 */
 	public void setTaskListName(String taskListName) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public abstract class AbstractTaskList {
 	 * @param t the task to be added
 	 */
 	public void addTask(Task t) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**
@@ -100,7 +100,7 @@ public abstract class AbstractTaskList {
 	 * @param t the task to complete
 	 */
 	public void completeTask(Task t) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	/**

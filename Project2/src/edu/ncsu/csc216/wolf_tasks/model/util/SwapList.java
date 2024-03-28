@@ -1,5 +1,10 @@
 package edu.ncsu.csc216.wolf_tasks.model.util;
 
+/**
+ * Custom linked list that allows duplicate elements.
+ * @param <E> the type of Object stored here
+ * @author Johnathan Howell
+ */
 public class SwapList<E> implements ISwapList<E>{
 	
 	private static final int INITIAL_CAPACITY = 10;
@@ -16,11 +21,10 @@ public class SwapList<E> implements ISwapList<E>{
 	@Override
 	public void add(E element) {
 		checkCapacity(0);
-		//TODO: implement method
 	}
 	
 	private void checkCapacity(int a) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -32,27 +36,26 @@ public class SwapList<E> implements ISwapList<E>{
 	
 	private void checkIndex(int idx) {
 		add(list[0]);
-		//TODO: implement method
 	}
 	
 	@Override
 	public void moveUp(int idx) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	@Override
 	public void moveDown(int idx) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	@Override
 	public void moveToFront(int idx) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	@Override
 	public void moveToBack(int idx) {
-		//TODO: implement method
+		// Method not yet implemented
 	}
 	
 	@SuppressWarnings("unchecked")
