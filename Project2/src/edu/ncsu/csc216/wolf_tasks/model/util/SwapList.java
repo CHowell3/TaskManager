@@ -31,15 +31,26 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@Override
 	public void add(E element) {
-		checkCapacity(0);
+		if(element == null) {
+			throw new NullPointerException("Cannot add null element.");
+		}
+		checkCapacity(size);
+		list[size++] = element;
 	}
 	
 	/**
 	 * Method that checks the capacity of the SwapList
 	 * @param idx checks the element to see if it is full in the list
 	 */
+	@SuppressWarnings("unchecked")
 	private void checkCapacity(int idx) {
-		// Method not yet implemented
+		if(idx == list.length) {
+			E[] newList = (E[]) new Object[list.length * 2];
+			for(int i = 0; i < size; i++) {
+				newList[i] = list[i];
+			}
+			list = newList;
+		}
 	}
 	
 	/**
@@ -47,11 +58,15 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @param idx index that the element will be removed from
 	 * @return E element that is removed from the SwapList
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public E remove(int idx) {
 		checkIndex(idx);
-		return (E) "index";
+		E dataY = list[idx];
+		for(int i = 0; i < size - 1; i++) {
+			list[i] = list[i + 1];
+		}
+		list[--size] = null;
+		return dataY;
 	}
 	
 	/**
@@ -59,7 +74,9 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @param idx index that will be checked in the list
 	 */
 	private void checkIndex(int idx) {
-		add(list[0]);
+		if (idx < 0 || idx >= size) {
+			throw new IndexOutOfBoundsException("Invalid index");
+		}
 	}
 	
 	/**
@@ -68,7 +85,12 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@Override
 	public void moveUp(int idx) {
-		// Method not yet implemented
+		checkIndex(idx);
+		if (idx > 0) {
+			E moving = list[idx];
+			list[idx] = list[idx -1];
+			list[idx - 1] = moving;
+		}
 	}
 	
 	/**
@@ -77,7 +99,12 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@Override
 	public void moveDown(int idx) {
-		// Method not yet implemented
+		checkIndex(idx);
+		if (idx < size - 1) {
+			E moving = list[idx];
+			list[idx] = list[idx + 1];
+			list[idx + 1] = moving;
+		}
 	}
 	
 	/**
@@ -86,7 +113,14 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@Override
 	public void moveToFront(int idx) {
-		// Method not yet implemented
+		checkIndex(idx);
+		if (idx > 0) {
+			E moving = list[idx];
+			for (int i = idx; i > 0; i--) {
+				list[i] = list[i - 1];
+			}
+			list[0] = moving;
+		}
 	}
 	
 	/**
@@ -95,7 +129,14 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@Override
 	public void moveToBack(int idx) {
-		// Method not yet implemented
+		checkIndex(idx);
+		if (idx < size - 1) {
+			E moving = list[idx];
+			for (int i = idx; i < size - 1; i++) {
+				list[i] = list[i + 1];
+			}
+			list[size - 1] = moving;
+		}
 	}
 	
 	/**
@@ -103,10 +144,10 @@ public class SwapList<E> implements ISwapList<E> {
 	 * @param idx index we are searching for 
 	 * @return E element at that specific index
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
 	public E get(int idx) {
-		return (E) "index";
+		checkIndex(idx);
+		return list[idx];
 	}
 	
 	/**
