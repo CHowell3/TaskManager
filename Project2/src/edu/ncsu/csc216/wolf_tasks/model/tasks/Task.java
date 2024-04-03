@@ -46,7 +46,11 @@ public class Task implements Cloneable {
 	 * @param active if the task is active
 	 */
 	public Task(String taskName, String taskDetails, boolean recurring, boolean active){
-		// Method not yet implemented
+		setTaskName(taskName);
+		setTaskDescription(taskDetails);
+		setActive(active);
+		setRecurring(recurring);
+		taskLists = new SwapList<AbstractTaskList>();
 	}
 	
 	/**
