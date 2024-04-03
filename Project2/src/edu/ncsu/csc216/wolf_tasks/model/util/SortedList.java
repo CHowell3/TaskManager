@@ -1,10 +1,10 @@
 package edu.ncsu.csc216.wolf_tasks.model.util;
 
 /**
- * The SortedList class implements the ISortedList interface and extends the Comparable interface. 
- * The SortedList class uses the Comparable.compareTo() method to determine the ordering of elements
- * @param <E> general element used in the list
- * @author Johnathan Howell and
+ * This class is a custom list that sorts all elements added via their .comparable() method.
+ * Does not allow duplicate elements to be added to the list.
+ * @param <E> the type of Object being stored
+ * @author Johnathan Howell
  */
 public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 
@@ -15,7 +15,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * Constructor of SortedList class
 	 */
 	public SortedList() {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -25,7 +25,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 *  @param E element to be added to the list
 	 */
 	public void add(E element) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -43,7 +43,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @param idx index that will be check in the list
 	 */
 	private void checkIndex(int idx) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -52,6 +52,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @return true if the list contains the element, false otherwise
 	 */
 	public boolean contains(E element) {
+		checkIndex(0);
 		return true;
 	}
 	

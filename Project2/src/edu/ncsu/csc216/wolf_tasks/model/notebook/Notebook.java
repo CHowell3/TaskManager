@@ -25,7 +25,7 @@ public class Notebook {
 	 * @param name of the specific notebook
 	 */
 	public Notebook(String name) {
-		
+		setNotebookName(name);
 	}
 	
 	/**
@@ -34,7 +34,7 @@ public class Notebook {
 	 * @param file used to save the notebook to
 	 */
 	public void saveNotebook(File file) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -42,7 +42,7 @@ public class Notebook {
 	 * @return name of notebook
 	 */
 	public String getNotebookName() {
-		return "";
+		return notebookName;
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Notebook {
 	 * @param name of the notebook
 	 */
 	private void setNotebookName(String name) {
-		
+		notebookName = name;
 	}
 	
 	/**
@@ -59,7 +59,7 @@ public class Notebook {
 	 * @return true if something is changed and false otherwise
 	 */
 	public boolean isChanged() {
-		return true;
+		return isChanged;
 	}
 	
 	/**
@@ -68,7 +68,7 @@ public class Notebook {
 	 * @param b true or false
 	 */
 	public void setChanged(boolean b) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -78,7 +78,7 @@ public class Notebook {
 	 * @param t specific TaskList passed
 	 */
 	public void addTaskList(TaskList t) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -94,7 +94,7 @@ public class Notebook {
 	 * and add each active Task (in order of priority). Must clear the ActiveTaskList first
 	 */
 	private void getActiveTaskList() {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -102,7 +102,7 @@ public class Notebook {
 	 * @param taskListName String passed as parameter
 	 */
 	public void setCurrentTaskList(String taskListName) {
-		
+			getActiveTaskList();
 	}
 	
 	/**
@@ -118,7 +118,6 @@ public class Notebook {
 	 * @param taskListName that the TaskList will be changed to 
 	 */
 	public void editTaskList(String taskListName) {
-		
 	}
 	
 	/**
@@ -126,7 +125,7 @@ public class Notebook {
 	 * isChanged is updated to true.
 	 */
 	public void removeTaskList() {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -136,7 +135,7 @@ public class Notebook {
 	 * @param t task added to taskList
 	 */
 	public void addTask(Task t) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -150,7 +149,7 @@ public class Notebook {
 	 * @param active whether task is active or not
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		
+
 	}
 }
 
