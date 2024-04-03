@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
 import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
+import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
 
 /**
  * Abstract class that is the superclass of the ActiveTaskList and TaskList classes.
@@ -31,7 +32,15 @@ public abstract class AbstractTaskList {
 	 * @throws IllegalArgumentException if the name is null, an empty string, or if completedCount is less than zero.
 	 */
 	public AbstractTaskList(String taskListName, int completedCount) {
-		this.taskListName = taskListName; 
+		if (taskListName == null || "".equals(taskListName)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
+		if (completedCount < 0) {
+			throw new IllegalArgumentException("Invalid completed count.");
+		}
+		this.taskListName = taskListName;
+		this.completedCount = completedCount;
+		this.tasks = new SwapList<>();
 	}
 	
 	/**
@@ -47,7 +56,7 @@ public abstract class AbstractTaskList {
 	 * @param taskListName the new name of the taskList
 	 */
 	public void setTaskListName(String taskListName) {
-		// Method not yet implemented
+		this.taskListName = taskListName;
 	}
 	
 	/**
@@ -71,7 +80,11 @@ public abstract class AbstractTaskList {
 	 * @param t the task to be added
 	 */
 	public void addTask(Task t) {
-		// Method not yet implemented
+		if (t == null) {
+			throw new IllegalArgumentException("Task cannot be null.");
+		}
+		tasks.add(t);
+		t.addTaskList(this);
 	}
 	
 	/**
@@ -80,8 +93,7 @@ public abstract class AbstractTaskList {
 	 * @return the task removed
 	 */
 	public Task removeTask(int idx) {
-		Task t = tasks.get(idx);
-		return t;
+		return tasks.remove(idx);
 	}
 	
 	/**
@@ -90,8 +102,7 @@ public abstract class AbstractTaskList {
 	 * @return the task retrieved
 	 */
 	public Task getTask(int idx) {
-		Task task = new Task("Task", "", false, false);
-		return task;
+		return tasks.get(idx);
 	}
 	
 	/**
@@ -100,7 +111,16 @@ public abstract class AbstractTaskList {
 	 * @param t the task to complete
 	 */
 	public void completeTask(Task t) {
-		// Method not yet implemented
+		if (t == null) {
+			throw new IllegalArgumentException("Task cannot be null");
+		}
+		for (int i = 0; i < tasks.size(); i++) {
+			if (tasks.get(i) == t) {
+				tasks.remove(i);
+				completedCount++;
+			}
+		}
+		throw new IllegalArgumentException("Task not found");
 	}
 	
 	/**
