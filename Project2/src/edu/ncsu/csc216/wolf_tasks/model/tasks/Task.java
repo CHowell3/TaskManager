@@ -63,7 +63,11 @@ public class Task implements Cloneable {
 	 * @throws IllegalArgumentException if passed a null value or an empty string
 	 */
 	public void setTaskName(String taskName) {
-		// Method not yet implemented
+		if (taskName == null || "".equals(taskName)) {
+			throw new IllegalArgumentException("Incomplete task information.");
+		}
+		this.taskName = taskName;
+			
 	}
 	
 	/**
@@ -80,7 +84,10 @@ public class Task implements Cloneable {
 	 * @throws IllegalArgumentException if passed a null value
 	 */
 	public void setTaskDescription(String taskDescription) {
-		// Method not yet implemented
+		if (taskDescription == null) {
+			throw new IllegalArgumentException("Incomplete task information.");
+		}
+		this.taskDescription = taskDescription;
 	}
 
 	/**
@@ -135,7 +142,12 @@ public class Task implements Cloneable {
 	 * @return a String representation of the task
 	 */
 	public String toString() {
-		String string = "";
+		String string = "Task: " + taskName + "\nDescription: " + taskDescription;
+		if (recurring && active) {
+			string += "\nRecurring: true\nActive: true";
+		} else {
+			string += "\nRecurring: " + recurring + "\nActive: " + active;
+		}
 		return string;
 	}
 	
@@ -147,7 +159,18 @@ public class Task implements Cloneable {
 	 * @throws IllegalArgumentException if passed a null value.
 	 */
 	public void addTaskList(AbstractTaskList taskList) {
-		// Method not yet implemented
+		if (taskList == null) {
+			throw new IllegalArgumentException("Incomplete task information.");
+		}
+		boolean found = false;
+		for (int i = 0; i < taskLists.size(); i++) {
+			if (taskLists.get(i).equals(taskList)) {
+				found = true;
+			}
+		}
+		if (!found) {
+			taskLists.add(taskList);
+		}
 	}
 	
 	/**
@@ -156,8 +179,10 @@ public class Task implements Cloneable {
 	 * @return taskListName
 	 */
 	public String getTaskListName() {
-		String taskListName = taskLists.get(0).getTaskListName();
-		return taskListName;
+		if (taskLists == null || taskLists.size() == 0) {
+			return "";
+		}
+		return taskLists.get(0).getTaskListName();
 	}
 	
 	/**
@@ -165,6 +190,18 @@ public class Task implements Cloneable {
 	 * If the task is recurring, a clone of the task is added to each taskList.
 	 */
 	public void completeTask() {
-		// Method not yet implemented
+		for (int i = 0; i < taskLists.size(); i++) {
+			taskLists.get(i).completeTask(this);
+		}
+		if (recurring) {
+			try {
+				Task cloneTask = this.clone();
+				for (int i = 0; i < taskLists.size(); i++) {
+					taskLists.get(i).addTask(cloneTask);
+				}
+			} catch (CloneNotSupportedException e) {
+				System.out.println("Task cannot be cloned.");
+			}
+		}
 	}
 }
