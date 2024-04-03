@@ -1,5 +1,6 @@
 package edu.ncsu.csc216.wolf_tasks.model.util;
 
+
 /**
  * This class is a custom list that sorts all elements added via their .comparable() method.
  * Does not allow duplicate elements to be added to the list.
@@ -8,14 +9,30 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  */
 public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 
+	private static class ListNode<E>{
+		E data;
+		
+		ListNode<E> next;
+		
+		ListNode(E data){
+			this.data = data;
+			
+			this.next = null;
+		}
+	}
+		
 	/** size of the list */
 	private int size;
+	
+	private ListNode<E> front;
 	
 	/**
 	 * Constructor of SortedList class
 	 */
 	public SortedList() {
-		// Method not yet implemented
+		front = null;
+		
+		size = 0;
 	}
 	
 	/**
@@ -25,7 +42,27 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 *  @param element to be added to the list
 	 */
 	public void add(E element) {
-		// Method not yet implemented
+		if (element == null) {
+			throw new NullPointerException("Cannot add null element");
+		}
+		
+		if(contains(element)) {
+			throw new IllegalArgumentException("Cannot add duplicate element");
+		}
+		
+		ListNode<E> newNode = new ListNode<>(element);
+		if(front == null || element.compareTo(front.data) < 0) {
+			newNode.next = front;
+			front = newNode;
+		} else {
+			ListNode<E> start = front;
+			while(start.next != null && element.compareTo(start.next.data) > 0) {
+				start = start.next;
+			}
+			newNode.next = start.next;
+			start.next = newNode;
+		}
+		size++;
 	}
 	
 	/**
@@ -33,9 +70,22 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @param idx index that will be removed from the list
 	 * @return E element that is removed
 	 */
-	@SuppressWarnings("unchecked")
 	public E remove(int idx) {
-		return (E) "type";
+		checkIndex(idx);
+		E dataX;
+		if(idx == 0) {
+			dataX = front.data;
+			front = front.next;
+		} else {
+			ListNode<E> start = front;
+			for (int i = 0; i < idx - 1; i++) {
+				start = start.next;
+			}
+			dataX = start.next.data;
+			start.next = start.next.next;
+		}
+		size--;
+		return dataX;
 	}
 	
 	/**
@@ -43,7 +93,9 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @param idx index that will be check in the list
 	 */
 	private void checkIndex(int idx) {
-		// Method not yet implemented
+		if(idx < 0 || idx >= size) {
+			throw new IndexOutOfBoundsException("Invalid index");
+		}
 	}
 	
 	/**
@@ -52,8 +104,14 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @return true if the list contains the element, false otherwise
 	 */
 	public boolean contains(E element) {
-		checkIndex(0);
-		return true;
+		ListNode<E> start = front;
+		while (start != null) {
+			if (start.data.equals(element)) {
+				return true;
+			}
+			start = start.next;
+		}
+		return false;
 	}
 	
 	/**
@@ -61,9 +119,13 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @param idx index we are looking at in the list
 	 * @return E element that is at that index
 	 */
-	@SuppressWarnings("unchecked")
 	public E get(int idx) {
-		return (E) "type";
+		checkIndex(idx);
+		ListNode<E> current = front;
+		for (int i = 0; i < idx; i++) {
+			current = current.next;
+		}
+		return current.data;
 	}
 	
 	/**
