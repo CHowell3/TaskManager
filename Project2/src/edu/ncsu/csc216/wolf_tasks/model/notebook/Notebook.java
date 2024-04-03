@@ -10,6 +10,7 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
  * Notebook class that has an ISortedList of TaskLists, one ActiveTaskList, an AbstractTaskList for the currentTaskList,
  * a notebookName, and a boolean flag that keeps track of if the Notebook has been changed since the last save. Methods include saving
  * notebook to a file, setting its name, changing the active task list, editing tasks and more.
+ * @author Johnathan Howell and Rachel Cantrell
  */
 public class Notebook {
 	
@@ -102,7 +103,7 @@ public class Notebook {
 	 * @param taskListName String passed as parameter
 	 */
 	public void setCurrentTaskList(String taskListName) {
-			getActiveTaskList();
+		getActiveTaskList();
 	}
 	
 	/**
@@ -118,6 +119,7 @@ public class Notebook {
 	 * @param taskListName that the TaskList will be changed to 
 	 */
 	public void editTaskList(String taskListName) {
+		// Method not yet implemented
 	}
 	
 	/**
@@ -149,7 +151,7 @@ public class Notebook {
 	 * @param active whether task is active or not
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-
+		// Method not yet implemented
 	}
 }
 
