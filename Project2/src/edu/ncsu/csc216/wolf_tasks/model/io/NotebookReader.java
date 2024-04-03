@@ -7,6 +7,11 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 
+/**
+ * Class that reads a notebook from a file.
+ * Since this is a static class, the constructor should not be used.
+ * @author Rachel Cantrell and Johnathan Howell 
+ */
 public class NotebookReader {
 	
 	/**
