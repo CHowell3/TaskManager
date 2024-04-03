@@ -4,7 +4,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  * This class is a custom list that sorts all elements added via their .comparable() method.
  * Does not allow duplicate elements to be added to the list.
  * @param <E> the type of Object being stored
- * @author Johnathan Howell
+ * @author Johnathan Howell and Rachel Cantrell
  */
 public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 
@@ -22,7 +22,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * Method to add specific element to the sortedList. Should throw a NullPointerException with message 
 	 * “Cannot add null element.” if the parameter is null. Should throw an IllegalArgumentException 
 	 *  with message “Cannot add duplicate element” if the parameter is a duplicate of an existing element.
-	 *  @param E element to be added to the list
+	 *  @param element to be added to the list
 	 */
 	public void add(E element) {
 		// Method not yet implemented
@@ -48,7 +48,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	
 	/**
 	 * Method that checks if the list contains the element that is passed as paramaeter
-	 * @param E element that we are checking for
+	 * @param element that we are checking for
 	 * @return true if the list contains the element, false otherwise
 	 */
 	public boolean contains(E element) {
