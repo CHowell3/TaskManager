@@ -3,7 +3,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
 /**
  * Custom linked list that allows duplicate elements and implements the ISwapList interface
  * @param <E> the elements in the swapList
- * @author Johnathan Howell
+ * @author Johnathan Howell and Rachel Cantrell
  */
 public class SwapList<E> implements ISwapList<E> {
 	

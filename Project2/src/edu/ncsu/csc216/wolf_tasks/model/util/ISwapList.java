@@ -4,7 +4,7 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  * Interface for a list that changes the position of elements through
  * swap operations. 
  * 
- * @author Dr. Sarah Heckman (sarah_heckman@ncsu.edu)
+ * @author Dr. Sarah Heckman (sarah_heckman@ncsu.edu) 
  *
  * @param <E> type for the ISwapList
  */

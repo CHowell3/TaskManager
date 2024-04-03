@@ -4,7 +4,7 @@ import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 
 /**
  * Abstract class that is the superclass of the ActiveTaskList and TaskList classes.
- * @author Rachel Cantrell
+ * @author Rachel Cantrell and Johnathan Howell
  */
 public abstract class AbstractTaskList {
 	

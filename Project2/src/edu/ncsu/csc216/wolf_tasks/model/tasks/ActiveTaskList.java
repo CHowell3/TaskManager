@@ -3,6 +3,7 @@ package edu.ncsu.csc216.wolf_tasks.model.tasks;
 /**
  * Class that models the active task list.
  * Has a fixed name, "Active Tasks". All the active tasks are automatically added to it. 
+ * @author Johnathan Howell and Rachel Cantrell
  */
 public class ActiveTaskList extends AbstractTaskList {
 	

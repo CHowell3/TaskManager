@@ -10,6 +10,7 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
  * Notebook class that has an ISortedList of TaskLists, one ActiveTaskList, an AbstractTaskList for the currentTaskList,
  * a notebookName, and a boolean flag that keeps track of if the Notebook has been changed since the last save. Methods include saving
  * notebook to a file, setting its name, changing the active task list, editing tasks and more.
+ * @author Johnathan Howell and Rachel Cantrell
  */
 public class Notebook {
 	

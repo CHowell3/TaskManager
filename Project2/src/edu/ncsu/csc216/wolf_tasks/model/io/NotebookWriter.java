@@ -8,6 +8,7 @@ import edu.ncsu.csc216.wolf_tasks.model.util.ISortedList;
 /**
  * Class that writes a notebook to a file.
  * Throws an IllegalArgumentException if any exceptions or errors occur.
+ * @author Johnathan Howell and Rachel Cantrell
  */
 public class NotebookWriter {
 	

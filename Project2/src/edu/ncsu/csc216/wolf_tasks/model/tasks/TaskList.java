@@ -3,7 +3,7 @@ package edu.ncsu.csc216.wolf_tasks.model.tasks;
 /**
  * This class models a standard task list, with a variable name. It's a Child class of AbstractTaskList.
  * Holds a list of tasks in an ISwapList.
- * @author Rachel Cantrell
+ * @author Rachel Cantrell and Johnathan Howell
  */
 public class TaskList extends AbstractTaskList implements Comparable<TaskList> {
 

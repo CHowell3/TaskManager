@@ -7,7 +7,7 @@ import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
  * Models individual tasks and stores their names, descriptions, and properties (active and recurring).
  * Also keeps an ISwapList of all the TaskLists this task belongs to.
  * Task implements the Cloneable interface. However, if the task does not belong to any TaskLists, an this method throws an exception.
- * @author Rachel Cantrell
+ * @author Rachel Cantrell and Johnathan Howell
  */
 public class Task implements Cloneable {
 	
