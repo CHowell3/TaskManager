@@ -4,7 +4,7 @@ import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 
 /**
  * Abstract class that is the superclass of the ActiveTaskList and TaskList classes.
- * @author Rachel Cantrell
+ * @author Rachel Cantrell and Johnathan Howell
  */
 public abstract class AbstractTaskList {
 	
@@ -31,7 +31,7 @@ public abstract class AbstractTaskList {
 	 * @throws IllegalArgumentException if the name is null, an empty string, or if completedCount is less than zero.
 	 */
 	public AbstractTaskList(String taskListName, int completedCount) {
-		this.taskListName= taskListName; 
+		this.taskListName = taskListName; 
 	}
 	
 	/**
@@ -47,7 +47,7 @@ public abstract class AbstractTaskList {
 	 * @param taskListName the new name of the taskList
 	 */
 	public void setTaskListName(String taskListName) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -71,7 +71,7 @@ public abstract class AbstractTaskList {
 	 * @param t the task to be added
 	 */
 	public void addTask(Task t) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
@@ -100,7 +100,7 @@ public abstract class AbstractTaskList {
 	 * @param t the task to complete
 	 */
 	public void completeTask(Task t) {
-		
+		// Method not yet implemented
 	}
 	
 	/**
