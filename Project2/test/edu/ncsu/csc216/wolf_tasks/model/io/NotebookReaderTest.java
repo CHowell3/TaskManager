@@ -4,8 +4,14 @@ import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test for NotebookReader class.
+ */
 public class NotebookReaderTest {
 
+	/**
+	 * Tests readNotebookFile method
+	 */
 	@Test
 	public void readNotebookFileTest() {
 		fail("Not yet implemented");
