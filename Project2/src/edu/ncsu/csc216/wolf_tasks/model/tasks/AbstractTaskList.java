@@ -32,13 +32,10 @@ public abstract class AbstractTaskList {
 	 * @throws IllegalArgumentException if the name is null, an empty string, or if completedCount is less than zero.
 	 */
 	public AbstractTaskList(String taskListName, int completedCount) {
-		if (taskListName == null || "".equals(taskListName)) {
-			throw new IllegalArgumentException("Invalid name.");
-		}
 		if (completedCount < 0) {
 			throw new IllegalArgumentException("Invalid completed count.");
 		}
-		this.taskListName = taskListName;
+		setTaskListName(taskListName);
 		this.completedCount = completedCount;
 		this.tasks = new SwapList<>();
 	}
@@ -56,6 +53,9 @@ public abstract class AbstractTaskList {
 	 * @param taskListName the new name of the taskList
 	 */
 	public void setTaskListName(String taskListName) {
+		if (taskListName == null || "".equals(taskListName)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
 		this.taskListName = taskListName;
 	}
 	

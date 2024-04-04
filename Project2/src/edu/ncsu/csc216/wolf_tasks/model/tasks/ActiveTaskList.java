@@ -1,5 +1,8 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
+import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
+import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
+
 /**
  * Class that models the active task list.
  * Has a fixed name, "Active Tasks". All the active tasks are automatically added to it. 
@@ -21,12 +24,14 @@ public class ActiveTaskList extends AbstractTaskList {
 
 	/**
 	 * Checks if the task is active before adding it to this list.
-	 * Throws an IllegalArgumentException "Cannot add task to Active Tasks" if the task is not active.
+	 * Throws an IllegalArgumentException "Cannot add task to Active Tasks." if the task is not active.
 	 * @throws IllegalArgumentException if task is not active
 	 */
 	@Override
 	public void addTask(Task t) {
-		// Method not yet implemented
+		if(!t.isActive())
+			throw new IllegalArgumentException("Cannot add task to Active Tasks.");
+		super.addTask(t);
 	}
 	
 	/**
@@ -36,7 +41,10 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public void setTaskListName(String s) {
-		// Method not yet implemented
+		if (s != ACTIVE_TASKS_NAME) {
+			throw new IllegalArgumentException("The Active Tasks list may not be edited.");
+		}
+		super.setTaskListName(s);
 	}
 	
 	/**
@@ -47,14 +55,27 @@ public class ActiveTaskList extends AbstractTaskList {
 	 */
 	@Override
 	public String[][] getTasksAsArray() {
-		return null;
+		int rows = super.getTasks().size();
+		String[][] array = new String[2][rows];
+		for(int i = 0; i < rows; i++) {
+			Task task = super.getTask(i);
+			array[0][i] = task.getTaskListName();
+			array[1][i] = task.getTaskName();
+		}
+		return array;
 	}
 	
 	/**
 	 * Clears the Active Tasks list of all tasks.
 	 */
 	public void clearTasks() {
-		// Method not yet implemented
+		ISwapList<Task> list = super.getTasks();
+		int length = list.size();
+		for(int i = length - 1; i >= 0; i--) {
+			Task t = super.getTask(i);
+			t.setActive(false);
+			list.remove(i);
+		}
 	}
 
 }

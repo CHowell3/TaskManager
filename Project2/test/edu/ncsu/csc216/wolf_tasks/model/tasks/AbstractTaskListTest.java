@@ -1,28 +1,49 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import org.junit.jupiter.api.Test;
+
+import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 
 /**
  * Test for AbstractTaskList class. Since AbstractTaskList is an abstract class, most of the tests are done through one of its child classes.
  */
 public class AbstractTaskListTest {
 
+	public static final String TASK_LIST_NAME = "Task List";
+	public static final String TASK_LIST_NEW_NAME = "Amazing Task List";
+	
+	public static final Task TASK_A = new Task("Alice's present", "Get a present for Alice", false, false);
+	public static final Task TASK_A2 = new Task("Alice's present", "Get a present for Alice", false, false);
+	public static final Task TASK_B = new Task("Buy groceries", "Remember to get milk", true, true);
+	public static final Task TASK_C = new Task("Caroling", "Sing carols with the gang", false, true);
+	public static final Task TASK_D = new Task("Do decorations", "Tree, lights, and garlands", false, true);
+	public static final Task TASK_E = new Task("Exercise", "Treadmill and weights", true, false);
+	
 	/**
 	 * Tests the AbstractTaskList constructor.
 	 */
 	@Test
 	public void testAbstractTaskListConstructor() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the getTaskListName method
-	 */
-	@Test
-	public void getTaskListNameTest() {
-		fail("Not yet implemented");
+		Exception e = assertThrows(IllegalArgumentException.class, () -> new TaskList(null, 3));
+		assertEquals("Invalid name.", e.getMessage());
+		
+		e = assertThrows(IllegalArgumentException.class, () -> new TaskList("", 3));
+		assertEquals("Invalid name.", e.getMessage());
+		
+		e = assertThrows(IllegalArgumentException.class, () -> new TaskList(TASK_LIST_NAME, -1));
+		assertEquals("Invalid completed count.", e.getMessage());
+		
+		
+		assertDoesNotThrow(() -> new TaskList(TASK_LIST_NAME, 0));
+		
+		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
+		assertEquals(TASK_LIST_NAME, taskList.getTaskListName());
+		assertEquals(0, taskList.getCompletedCount());
 	}
 	
 	/**
@@ -30,23 +51,9 @@ public class AbstractTaskListTest {
 	 */
 	@Test
 	public void setTaskListNameTest() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the getTasks method
-	 */
-	@Test
-	public void getTasksTest() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the getCompletedCount method
-	 */
-	@Test
-	public void getCompletedCountTest() {
-		fail("Not yet implemented");
+		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
+		taskList.setTaskListName(TASK_LIST_NEW_NAME);
+		assertEquals(TASK_LIST_NEW_NAME, taskList.getTaskListName());
 	}
 	
 	/**
@@ -54,7 +61,10 @@ public class AbstractTaskListTest {
 	 */
 	@Test
 	public void addTaskTest() {
-		fail("Not yet implemented");
+		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
+		ISwapList<Task> swapList = taskList.getTasks();
+		assertEquals(0, swapList.size());
+				
 	}
 	
 	/**
