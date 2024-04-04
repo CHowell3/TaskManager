@@ -6,8 +6,8 @@
 - **Write tests for and implement Task (18 methods and fields)** | **Owner:** jchowell, **Due:** 3/31, **Status:** Pending
 - -
 - **Write tests for and implement AbstractTaskList (12 methods and fields)** | **Owner:** jchowell, **Due:** 4/1, **Status:** Pending
-- **Write tests for and implement TaskList (3 methods and fields)** | **Owner:** rmcantre, **Due:** 4/1, **Status:** Pending
-- **Write tests for and implement ActiveTaskList (6 methods and fields)** | **Owner:** rmcantre, **Due:** 4/1, **Status:** Pending
+- **Write tests for and implement TaskList (3 methods and fields)** | **Owner:** rmcantre, **Due:** 4/1, **Status:** Done
+- **Write tests for and implement ActiveTaskList (6 methods and fields)** | **Owner:** rmcantre, **Due:** 4/1, **Status:** Done
 - -
 - **Write tests for and implement Notebook (17 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Pending
 - **Write tests for and implement NotebookReader (4 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Pending
