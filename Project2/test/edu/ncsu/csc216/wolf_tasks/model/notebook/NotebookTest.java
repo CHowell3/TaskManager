@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.util.Arrays;
@@ -192,6 +191,7 @@ public class NotebookTest {
 		notebook.removeTaskList();		
 		assertTrue(notebook.isChanged());
 		assertEquals(ActiveTaskList.ACTIVE_TASKS_NAME, notebook.getCurrentTaskList().getTaskListName());
+		
 	}
 	
 	/**
@@ -235,6 +235,42 @@ public class NotebookTest {
 	 */
 	@Test
 	public void editTaskTest() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		notebook.addTaskList(LIST_H);
+		notebook.addTask(TASK_A);
+		notebook.addTask(TASK_B);
+		notebook.addTask(TASK_C);
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		notebook.saveNotebook(FILE);
+		
+		notebook.editTask(1, "Buy baby toys", "Babysitting for Billy", false, true);
+		assertFalse(notebook.isChanged());
+		
+		notebook.setCurrentTaskList("Healthy Habits");
+		notebook.editTask(1, "Buy baby toys", "Babysitting for Billy", false, true);
+		assertTrue(notebook.isChanged());
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		assertEquals(2, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_B, notebook.getCurrentTaskList().getTask(0));
+		assertEquals(TASK_C, notebook.getCurrentTaskList().getTask(1));
+		
+		notebook.saveNotebook(FILE);
+		notebook.setCurrentTaskList("Healthy Habits");
+		notebook.editTask(0, "Anger Alice", "Dispose of a present for Alice", false, true);
+		assertTrue(notebook.isChanged());
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		assertEquals(3, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_A, notebook.getCurrentTaskList().getTask(0));
+		assertEquals(TASK_B, notebook.getCurrentTaskList().getTask(1));
+		assertEquals(TASK_C, notebook.getCurrentTaskList().getTask(2));
+		
+		notebook.saveNotebook(FILE);
+		notebook.setCurrentTaskList("Healthy Habits");
+		notebook.editTask(0, "Anger Alice", "Dispose of a present for Alice", false, false);
+		assertTrue(notebook.isChanged());
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		assertEquals(2, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_B, notebook.getCurrentTaskList().getTask(0));
+		assertEquals(TASK_C, notebook.getCurrentTaskList().getTask(1));
 	}
 }

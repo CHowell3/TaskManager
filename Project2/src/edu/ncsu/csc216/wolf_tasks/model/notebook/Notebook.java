@@ -52,7 +52,7 @@ public class Notebook {
 	 * @param file used to save the notebook to
 	 */
 	public void saveNotebook(File file) {
-		// Method not yet implemented
+		setChanged(false);
 	}
 	
 	/**
@@ -237,7 +237,21 @@ public class Notebook {
 	 * @param active whether task is active or not
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		
+		if(currentTaskList instanceof ActiveTaskList)
+			return;
+		Task t = currentTaskList.getTask(idx);
+		boolean regenerateActive = false;
+		if(t.isActive())
+			regenerateActive = true;
+		t.setTaskName(taskName);
+		t.setTaskDescription(taskDescription);
+		t.setRecurring(recurring);
+		t.setActive(active);
+		if(t.isActive())
+			regenerateActive = true;
+		if(regenerateActive) {
+			getActiveTaskList();
+		}
 		setChanged(true);
 	}
 }
