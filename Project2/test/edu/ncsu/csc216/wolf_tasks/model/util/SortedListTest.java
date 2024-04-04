@@ -1,6 +1,9 @@
 package edu.ncsu.csc216.wolf_tasks.model.util;
 
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,15 +17,24 @@ public class SortedListTest {
 	 */
 	@Test
 	public void testSortedListConstructor() {
-		fail("Not yet implemented");
-	}
+		SortedList<String> sortedList = new SortedList<>();
+        assertNotNull(sortedList);
+        assertEquals(0, sortedList.size());
+    }
 
 	/**
 	 * Tests the add method.
 	 */
 	@Test
 	public void addTest() {
-		fail("Not yet implemented");
+		SortedList<Integer> sortedList = new SortedList<>();
+	    sortedList.add(5);
+	    sortedList.add(3);
+	    sortedList.add(8);
+	    assertEquals(3, sortedList.size());
+	    assertTrue(sortedList.contains(3));
+	    assertTrue(sortedList.contains(5));
+	    assertTrue(sortedList.contains(8));
 	}
 	
 	/**
@@ -30,7 +42,14 @@ public class SortedListTest {
 	 */
 	@Test
 	public void removeTest() {
-		fail("Not yet implemented");
+		SortedList<Integer> sortedList = new SortedList<>();
+        sortedList.add(5);
+        sortedList.add(3);
+        sortedList.add(8);
+        sortedList.remove(1);
+        assertEquals(2, sortedList.size());
+        assertTrue(sortedList.contains(3));
+        assertFalse(sortedList.contains(5));
 	}
 	
 	/**
@@ -38,7 +57,12 @@ public class SortedListTest {
 	 */
 	@Test
 	public void containsTest() {
-		fail("Not yet implemented");
+		SortedList<String> sortedList = new SortedList<>();
+        sortedList.add("apple");
+        sortedList.add("banana");
+        sortedList.add("orange");
+        assertTrue(sortedList.contains("banana"));
+        assertFalse(sortedList.contains("grape"));
 	}
 	
 	/**
@@ -46,7 +70,13 @@ public class SortedListTest {
 	 */
 	@Test
 	public void getTest() {
-		fail("Not yet implemented");
+		 SortedList<String> sortedList = new SortedList<>();
+	     sortedList.add("Hello");
+	     sortedList.add("there");
+	     sortedList.add("How");
+	     assertEquals("Hello", sortedList.get(0));
+	     assertEquals("How", sortedList.get(1));
+	     assertEquals("there",sortedList.get(2));
 	}
 	
 	/**
@@ -54,6 +84,11 @@ public class SortedListTest {
 	 */
 	@Test
 	public void sizeTest() {
-		fail("Not yet implemented");
-	}
+		SortedList<Character> sortedList = new SortedList<>();
+        assertEquals(0, sortedList.size());
+        sortedList.add('a');
+        sortedList.add('b');
+        assertEquals(2, sortedList.size());
+    }
 }
+

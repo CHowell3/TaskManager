@@ -1,6 +1,10 @@
 package edu.ncsu.csc216.wolf_tasks.model.util;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +18,9 @@ public class SwapListTest {
 	 */
 	@Test
 	public void testSwapListConstructor() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+		assertNotNull(swapList);
+		assertEquals(0, swapList.size());
 	}
 	
 	/**
@@ -22,7 +28,10 @@ public class SwapListTest {
 	 */
 	@Test
 	public void addTest() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+        swapList.add("Element 1");
+        assertEquals(1, swapList.size());
+        assertEquals("Element 1", swapList.get(0));
 	}
 	
 	/**
@@ -30,7 +39,11 @@ public class SwapListTest {
 	 */
 	@Test
 	public void removeTest() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+        swapList.add("Element 1");
+        String removed = swapList.remove(0);
+        assertEquals(0, swapList.size());
+        assertEquals("Element 1", removed);
 	}
 	
 	/**
@@ -38,7 +51,12 @@ public class SwapListTest {
 	 */
 	@Test
 	public void moveUpTest() {
-		fail("Not yet implemented");
+		 SwapList<String> swapList = new SwapList<>();
+	     swapList.add("Element 1");
+	     swapList.add("Element 2");
+	     swapList.moveUp(1);
+	     assertEquals("Element 2", swapList.get(0));
+	     assertEquals("Element 1", swapList.get(1));
 	}
 	
 	/**
@@ -46,7 +64,12 @@ public class SwapListTest {
 	 */
 	@Test
 	public void moveDownTest() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+        swapList.add("Element 1");
+        swapList.add("Element 2");
+        swapList.moveDown(0);
+        assertEquals("Element 2", swapList.get(0));
+        assertEquals("Element 1", swapList.get(1));
 	}
 	
 	/**
@@ -54,15 +77,24 @@ public class SwapListTest {
 	 */
 	@Test
 	public void moveToFrontTest() {
-		fail("Not yet implemented");
-	}
+		SwapList<String> swapList = new SwapList<>();
+	    swapList.add("Element 1");
+	    swapList.add("Element 2");
+	    swapList.moveToFront(1);
+	    assertEquals("Element 2", swapList.get(0));
+	    assertEquals("Element 1", swapList.get(1));	}
 	
 	/**
 	 * Tests the moveToBack method.
 	 */
 	@Test
 	public void moveToBackTest() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+        swapList.add("Element 1");
+        swapList.add("Element 2");
+        swapList.moveToBack(0);
+        assertEquals("Element 2", swapList.get(0));
+        assertEquals("Element 1", swapList.get(1));
 	}
 	
 	/**
@@ -70,7 +102,10 @@ public class SwapListTest {
 	 */
 	@Test
 	public void getTest() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+	    swapList.add("Element 1");
+	    swapList.add("Element 2");
+	    assertEquals("Element 2", swapList.get(1));
 	}
 	
 	/**
@@ -78,6 +113,11 @@ public class SwapListTest {
 	 */
 	@Test
 	public void sizeTest() {
-		fail("Not yet implemented");
+		SwapList<String> swapList = new SwapList<>();
+	    assertEquals(0, swapList.size());
+	    swapList.add("Element 1");
+	    assertEquals(1, swapList.size());
+	    swapList.remove(0);
+	    assertEquals(0, swapList.size());
 	}
 }
