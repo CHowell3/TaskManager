@@ -8,8 +8,11 @@ import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
 
+import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
+
 /**
  * Test for Notebook class.
+ * @author Rachel Cantrell
  */
 public class NotebookTest {
 
@@ -18,6 +21,30 @@ public class NotebookTest {
 	 * "Super-duper Notebook"
 	 */
 	public final static String NOTEBOOK_NAME = "Super-duper Notebook";
+	
+	/**
+	 * TaskList for testing
+	 * "Healthy Habits"
+	 */
+	public final static TaskList LIST_H = new TaskList("Healthy Habits", 2);
+	
+	/**
+	 * TaskList for testing
+	 * "Study for Stats"
+	 */
+	public final static TaskList LIST_S = new TaskList("Study for Stats", 5);
+	
+	/**
+	 * Duplicate TaskList for testing
+	 * "Study for Stats"
+	 */
+	public final static TaskList LIST_S2 = new TaskList("Study for Stats", 0);
+	
+	/**
+	 * Illegal TaskList for testing
+	 * "Active Tasks"
+	 */
+	public final static TaskList LIST_ACTIVE = new TaskList("Active Tasks", 5);
 	
 	/**
 	 * Tests the Notebook constructor
@@ -44,6 +71,18 @@ public class NotebookTest {
 		
 		assertFalse(notebook.isChanged());
 		
+	}
+	
+	@Test
+	public void addTaskListTest() {
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		Exception e = assertThrows(IllegalArgumentException.class, () -> notebook.addTaskList(LIST_ACTIVE));
+		assertEquals("Invalid name.", e.getMessage());
+		
+		notebook.addTaskList(LIST_S);
+		notebook.addTaskList(LIST_H);
+		e = assertThrows(IllegalArgumentException.class, () -> notebook.addTaskList(LIST_S2));
+		assertEquals("Invalid name.", e.getMessage());
 	}
 	
 	/**
@@ -91,7 +130,7 @@ public class NotebookTest {
 	 */
 	@Test
 	public void addTaskTest() {
-		fail("Not yet implemented");
+		
 	}
 	
 	/**
