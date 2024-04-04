@@ -186,6 +186,7 @@ public class Notebook {
 				taskLists.remove(i);
 				t.setTaskListName(taskListName);
 				taskLists.add(t);
+				setChanged(true);
 				return;
 			}
 		}
@@ -197,7 +198,17 @@ public class Notebook {
 	 * isChanged is updated to true.
 	 */
 	public void removeTaskList() {
-		// Method not yet implemented
+		if(currentTaskList instanceof ActiveTaskList)
+			throw new IllegalArgumentException("The Active Tasks list may not be deleted.");
+		int numLists = taskLists.size();
+		for(int i = 0; i < numLists; i++) {
+			TaskList t = taskLists.get(i);
+			if(t.getTaskListName().equals(currentTaskList.getTaskListName())) {
+				taskLists.remove(i);
+				setChanged(true);
+			}
+		}
+		currentTaskList = activeTaskList;
 	}
 	
 	/**
@@ -226,7 +237,8 @@ public class Notebook {
 	 * @param active whether task is active or not
 	 */
 	public void editTask(int idx, String taskName, String taskDescription, boolean recurring, boolean active) {
-		// Method not yet implemented
+		
+		setChanged(true);
 	}
 }
 

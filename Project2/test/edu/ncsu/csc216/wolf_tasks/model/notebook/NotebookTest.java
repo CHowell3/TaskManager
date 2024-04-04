@@ -6,6 +6,7 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
@@ -66,6 +67,11 @@ public class NotebookTest {
 	public static final Task TASK_E = new Task("Exercise", "Treadmill and weights", true, true);
 	
 	/**
+	 * File for IO tests and testing isChanged
+	 */
+	public static final File FILE = new File("/Project2/test-files/actual_out.txt");
+	
+	/**
 	 * Tests the Notebook constructor
 	 */
 	@Test
@@ -101,6 +107,7 @@ public class NotebookTest {
 		Exception e = assertThrows(IllegalArgumentException.class, () -> notebook.addTaskList(LIST_ACTIVE));
 		assertEquals("Invalid name.", e.getMessage());
 		
+		notebook.saveNotebook(FILE);
 		notebook.addTaskList(LIST_S);
 		notebook.addTaskList(LIST_H);
 		e = assertThrows(IllegalArgumentException.class, () -> notebook.addTaskList(LIST_S2));
@@ -160,10 +167,14 @@ public class NotebookTest {
 		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("active TaSKS"));
 		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("StudY For sTAts"));
 		
+		notebook.saveNotebook(FILE);
 		notebook.editTaskList("Aapplesauce");
+		assertTrue(notebook.isChanged());
 		String[] array = {ActiveTaskList.ACTIVE_TASKS_NAME, "Aapplesauce", "Healthy Habits"};
 		assertTrue(Arrays.equals(array, notebook.getTaskListsNames()));
+		notebook.saveNotebook(FILE);
 		notebook.editTaskList("Study for Stats");
+		assertTrue(notebook.isChanged());
 	}
 	
 	/**
@@ -171,7 +182,16 @@ public class NotebookTest {
 	 */
 	@Test
 	public void removeTaskListTest() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		Exception e = assertThrows(IllegalArgumentException.class, () -> notebook.removeTaskList());
+		assertEquals("The Active Tasks list may not be deleted.", e.getMessage());
+		notebook.addTaskList(LIST_H);
+		notebook.addTaskList(LIST_S);
+		notebook.saveNotebook(FILE);
+		
+		notebook.removeTaskList();		
+		assertTrue(notebook.isChanged());
+		assertEquals(ActiveTaskList.ACTIVE_TASKS_NAME, notebook.getCurrentTaskList().getTaskListName());
 	}
 	
 	/**
@@ -181,7 +201,7 @@ public class NotebookTest {
 	public void addTaskTest() {
 		Notebook notebook = new Notebook(NOTEBOOK_NAME);
 		notebook.addTaskList(LIST_H);
-		notebook.saveNotebook(null);
+		notebook.saveNotebook(FILE);
 		notebook.addTask(TASK_A);
 		
 		assertTrue(notebook.isChanged());
@@ -190,7 +210,7 @@ public class NotebookTest {
 		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
 		assertEquals(0, notebook.getCurrentTaskList().getTasks().size());
 		
-		notebook.saveNotebook(null);
+		notebook.saveNotebook(FILE);
 		notebook.addTask(TASK_B);
 		assertTrue(notebook.isChanged());
 		assertEquals(0, notebook.getCurrentTaskList().getTasks().size());
@@ -198,7 +218,7 @@ public class NotebookTest {
 		assertEquals(1, notebook.getCurrentTaskList().getTasks().size());
 		assertEquals(TASK_A, notebook.getCurrentTaskList().getTask(0));
 		
-		notebook.saveNotebook(null);
+		notebook.saveNotebook(FILE);
 		notebook.addTask(TASK_B);
 		assertTrue(notebook.isChanged());
 		assertEquals(2, notebook.getCurrentTaskList().getTasks().size());
