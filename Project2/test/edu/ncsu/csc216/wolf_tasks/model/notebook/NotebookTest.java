@@ -6,6 +6,8 @@ import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
@@ -90,6 +92,9 @@ public class NotebookTest {
 		
 	}
 	
+	/**
+	 * Tests the addTaskList method
+	 */
 	@Test
 	public void addTaskListTest() {
 		Notebook notebook = new Notebook(NOTEBOOK_NAME);
@@ -110,7 +115,17 @@ public class NotebookTest {
 	 */
 	@Test
 	public void getTaskListsNamesTest() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		String[] array1 = {ActiveTaskList.ACTIVE_TASKS_NAME};
+		assertTrue(Arrays.equals(array1, notebook.getTaskListsNames()));
+		
+		notebook.addTaskList(LIST_S);
+		String[] array2 = {ActiveTaskList.ACTIVE_TASKS_NAME, "Study for Stats"};
+		assertTrue(Arrays.equals(array2, notebook.getTaskListsNames()));
+		
+		notebook.addTaskList(LIST_H);
+		String[] array3 = {ActiveTaskList.ACTIVE_TASKS_NAME, "Healthy Habits", "Study for Stats"};
+		assertTrue(Arrays.equals(array3, notebook.getTaskListsNames()));		
 	}
 	
 	/**
@@ -136,7 +151,18 @@ public class NotebookTest {
 	 */
 	@Test
 	public void editTaskListTest() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("Peanuts"));
+		
+		notebook.addTaskList(LIST_H);
+		notebook.addTaskList(LIST_S);
+		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList(ActiveTaskList.ACTIVE_TASKS_NAME));
+		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("active TaSKS"));
+		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("StudY For sTAts"));
+		
+		notebook.editTaskList("Aapplesauce");
+		String[] array = {ActiveTaskList.ACTIVE_TASKS_NAME, "Aapplesauce", "Healthy Habits"};
+		assertTrue(Arrays.equals(array, notebook.getTaskListsNames()));
 	}
 	
 	/**

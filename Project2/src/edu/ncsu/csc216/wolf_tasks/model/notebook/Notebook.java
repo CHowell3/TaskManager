@@ -43,6 +43,7 @@ public class Notebook {
 		setChanged(true);
 		activeTaskList = new ActiveTaskList();
 		taskLists = new SortedList<TaskList>();
+		currentTaskList = activeTaskList;
 	}
 	
 	/**
@@ -176,7 +177,19 @@ public class Notebook {
 	 * @param taskListName that the TaskList will be changed to 
 	 */
 	public void editTaskList(String taskListName) {
-		// Method not yet implemented
+		if(currentTaskList instanceof ActiveTaskList || taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME) || taskListName.equalsIgnoreCase(currentTaskList.getTaskListName()))
+			throw new IllegalArgumentException();
+		int numLists = taskLists.size();
+		for(int i = 0; i < numLists; i++) {
+			TaskList t = taskLists.get(i);
+			if(t.getTaskListName().equals(currentTaskList.getTaskListName())) {
+				taskLists.remove(i);
+				t.setTaskListName(taskListName);
+				taskLists.add(t);
+				return;
+			}
+		}
+		throw new IllegalArgumentException();
 	}
 	
 	/**
