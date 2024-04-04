@@ -1,7 +1,6 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
 import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
-import edu.ncsu.csc216.wolf_tasks.model.util.SwapList;
 
 /**
  * Class that models the active task list.

@@ -7,8 +7,6 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import java.util.Arrays;
 
-import static org.junit.Assert.fail;
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -16,10 +14,20 @@ import org.junit.jupiter.api.Test;
  */
 public class ActiveTaskListTest {
 
+
+	/** Task for testing ActiveTaskList*/
 	public static final Task TASK_A = new Task("Alice's present", "Get a present for Alice", false, false);
+
+	/** Task for testing ActiveTaskList*/
 	public static final Task TASK_B = new Task("Buy groceries", "Remember to get milk", true, true);
+
+	/** Task for testing ActiveTaskList*/
 	public static final Task TASK_C = new Task("Caroling", "Sing carols with the gang", false, true);
+
+	/** Task for testing ActiveTaskList*/
 	public static final Task TASK_D = new Task("Do decorations", "Tree, lights, and garlands", false, true);
+
+	/** Task for testing ActiveTaskList*/
 	public static final Task TASK_E = new Task("Exercise", "Treadmill and weights", true, true);
 	
 	/**
