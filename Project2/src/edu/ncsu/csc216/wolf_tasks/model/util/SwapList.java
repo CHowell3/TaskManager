@@ -88,7 +88,7 @@ public class SwapList<E> implements ISwapList<E> {
 		checkIndex(idx);
 		if (idx > 0) {
 			E moving = list[idx];
-			list[idx] = list[idx -1];
+			list[idx] = list[idx - 1];
 			list[idx - 1] = moving;
 		}
 	}

@@ -9,9 +9,16 @@ package edu.ncsu.csc216.wolf_tasks.model.util;
  */
 public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 
-	private static class ListNode<E>{
+	private static class ListNode<E> {
+		
+		/**
+		 * Data stored by this list node
+		 */
 		E data;
 		
+		/**
+		 * Reference to the next ListNode ini the list
+		 */
 		ListNode<E> next;
 		
 		ListNode(E data){
@@ -24,6 +31,9 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	/** size of the list */
 	private int size;
 	
+	/**
+	 * Reference to the first node in the list. If this is lost, so is the entire list.
+	 */
 	private ListNode<E> front;
 	
 	/**

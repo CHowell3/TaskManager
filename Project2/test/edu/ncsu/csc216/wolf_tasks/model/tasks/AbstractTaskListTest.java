@@ -14,14 +14,46 @@ import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
  */
 public class AbstractTaskListTest {
 
+	/**
+	 * Name for a task list
+	 * "Task List"
+	 */
 	public static final String TASK_LIST_NAME = "Task List";
-	public static final String TASK_LIST_NEW_NAME = "Amazing Task List";
 	
+	/**
+	 * Name for a task list
+	 * "Amazing Task List"
+	 */
+	public static final String TASK_LIST_NEW_NAME = "Amazing Task List";
+
+	/**
+	 * Task for testing TaskList class
+	 */
 	public static final Task TASK_A = new Task("Alice's present", "Get a present for Alice", false, false);
+
+	/**
+	 * Task for testing TaskList class
+	 */
 	public static final Task TASK_A2 = new Task("Alice's present", "Get a present for Alice", false, false);
+
+	/**
+	 * Task for testing TaskList class
+	 */
 	public static final Task TASK_B = new Task("Buy groceries", "Remember to get milk", true, true);
+
+	/**
+	 * Task for testing TaskList class
+	 */
 	public static final Task TASK_C = new Task("Caroling", "Sing carols with the gang", false, true);
+
+	/**
+	 * Task for testing TaskList class
+	 */
 	public static final Task TASK_D = new Task("Do decorations", "Tree, lights, and garlands", false, true);
+
+	/**
+	 * Task for testing TaskList class
+	 */
 	public static final Task TASK_E = new Task("Exercise", "Treadmill and weights", true, false);
 	
 	/**
