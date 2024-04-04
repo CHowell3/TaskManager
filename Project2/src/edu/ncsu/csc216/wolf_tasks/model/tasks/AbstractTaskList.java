@@ -114,13 +114,18 @@ public abstract class AbstractTaskList {
 		if (t == null) {
 			throw new IllegalArgumentException("Task cannot be null");
 		}
+		boolean taskFound = false;
 		for (int i = 0; i < tasks.size(); i++) {
 			if (tasks.get(i) == t) {
 				tasks.remove(i);
 				completedCount++;
+				taskFound = true;
 			}
 		}
-		throw new IllegalArgumentException("Task not found");
+		
+		if(!taskFound) {
+			throw new IllegalArgumentException("Task not found");
+		}
 	}
 	
 	/**

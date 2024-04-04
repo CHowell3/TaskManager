@@ -1,5 +1,9 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
@@ -14,7 +18,12 @@ public class TaskTest {
 	 */
 	@Test
 	public void testTaskConstructor() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 1", "Description 1", true, false);
+		assertNotNull(task);
+		assertEquals("Task 1", task.getTaskName());
+		assertEquals("Description 1", task.getTaskDescription());
+		assertTrue(task.isRecurring());
+		assertFalse(task.isActive());
 	}
 	
 	/**
@@ -22,7 +31,8 @@ public class TaskTest {
 	 */
 	@Test
 	public void getTaskNameTest() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 2", "Description 2", false, true);
+        assertEquals("Task 2", task.getTaskName());
 	}
 	
 	/**
@@ -30,7 +40,9 @@ public class TaskTest {
 	 */
 	@Test
 	public void setTaskNameTest() {
-		fail("Not yet implemented");
+		 Task task = new Task("Task 3", "Description 3", false, true);
+	     task.setTaskName("Task 3 Updated");
+	     assertEquals("Task 3 Updated", task.getTaskName());
 	}
 	
 	/**
@@ -38,7 +50,8 @@ public class TaskTest {
 	 */
 	@Test
 	public void getTaskDescriptionTest() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 4", "Description 4", false, true);
+	    assertEquals("Description 4", task.getTaskDescription());
 	}
 	
 	/**
@@ -46,7 +59,9 @@ public class TaskTest {
 	 */
 	@Test
 	public void setTaskDescriptionTest() {
-		fail("Not yet implemented");
+		 Task task = new Task("Task 5", "Description 5", false, true);
+	     task.setTaskDescription("Description 5 Updated");
+	     assertEquals("Description 5 Updated", task.getTaskDescription());
 	}
 	
 	/**
@@ -54,7 +69,8 @@ public class TaskTest {
 	 */
 	@Test
 	public void isRecurringTest() {
-		fail("Not yet implemented");
+		 Task task = new Task("Task 6", "Description 6", true, true);
+	     assertTrue(task.isRecurring());
 	}
 	
 	/**
@@ -62,7 +78,9 @@ public class TaskTest {
 	 */
 	@Test
 	public void setRecurringTest() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 7", "Description 7", true, true);
+        task.setRecurring(false);
+        assertFalse(task.isRecurring());
 	}
 	
 	/**
@@ -70,7 +88,8 @@ public class TaskTest {
 	 */
 	@Test
 	public void isActiveTest() {
-		fail("Not yet implemented");
+		 Task task = new Task("Task 8", "Description 8", false, false);
+	     assertFalse(task.isActive());
 	}
 	
 	/**
@@ -78,7 +97,9 @@ public class TaskTest {
 	 */
 	@Test
 	public void setActiveTest() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 9", "Description 9", true, false);
+        task.setActive(true);
+        assertTrue(task.isActive());
 	}
 	
 	/**
@@ -86,14 +107,18 @@ public class TaskTest {
 	 */
 	@Test
 	public void getTaskListNameTest() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 10", "Description 10", true, true);
+        assertEquals("", task.getTaskListName());
 	}
 	/**
 	 * Tests the addTaskList method.
 	 */
 	@Test
 	public void addTaskListTest() {
-		fail("Not yet implemented");
+		Task task = new Task("Task 11", "Description 11", false, false);
+        AbstractTaskList taskList = new TaskList("TaskList 11", 0);
+        task.addTaskList(taskList);
+        assertEquals("TaskList 11", task.getTaskListName());
 	}
 	
 	/**
@@ -101,8 +126,14 @@ public class TaskTest {
 	 */
 	@Test
 	public void completeTaskTest() {
-		fail("Not yet implemented");
-	}
+	    Task task = new Task("Task 12", "Description 12", false, false);
+	    AbstractTaskList taskList = new TaskList("TaskList 12", 0);
+	    taskList.addTask(task);
+	    task.addTaskList(taskList);
+	    assertFalse(task.isActive());
+	    task.completeTask();
+	    assertTrue(task.isActive());
+	}	
 	
 	/**
 	 * Tests the clone method.

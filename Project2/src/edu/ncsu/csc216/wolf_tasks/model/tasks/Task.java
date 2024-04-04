@@ -194,17 +194,20 @@ public class Task implements Cloneable {
 	 * If the task is recurring, a clone of the task is added to each taskList.
 	 */
 	public void completeTask() {
-		for (int i = 0; i < taskLists.size(); i++) {
-			taskLists.get(i).completeTask(this);
-		}
-		if (recurring) {
-			try {
-				Task cloneTask = this.clone();
-				for (int i = 0; i < taskLists.size(); i++) {
-					taskLists.get(i).addTask(cloneTask);
+		if(isActive()) {
+			setActive(false);
+			for (int i = 0; i < taskLists.size(); i++) {
+				taskLists.get(i).completeTask(this);
+			}
+			if (recurring) {
+				try {
+					Task cloneTask = this.clone();
+					for (int i = 0; i < taskLists.size(); i++) {
+						taskLists.get(i).addTask(cloneTask);
+					}
+				} catch (CloneNotSupportedException e) {
+					System.out.println("Task cannot be cloned.");
 				}
-			} catch (CloneNotSupportedException e) {
-				System.out.println("Task cannot be cloned.");
 			}
 		}
 	}
