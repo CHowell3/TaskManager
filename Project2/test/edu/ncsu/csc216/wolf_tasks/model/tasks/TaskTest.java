@@ -126,13 +126,13 @@ public class TaskTest {
 	 */
 	@Test
 	public void completeTaskTest() {
-	    Task task = new Task("Task 12", "Description 12", false, false);
+	    Task task = new Task("Task 12", "Description 12", false, true);
 	    AbstractTaskList taskList = new TaskList("TaskList 12", 0);
 	    taskList.addTask(task);
 	    task.addTaskList(taskList);
-	    assertFalse(task.isActive());
-	    task.completeTask();
 	    assertTrue(task.isActive());
+	    task.completeTask();
+	    assertFalse(task.isActive());
 	}	
 	
 	/**
@@ -140,7 +140,23 @@ public class TaskTest {
 	 */
 	@Test
 	public void cloneTest() {
-		fail("Not yet implemented");
+		Task task1 = new Task("Task 1", "Description 1", false, false);
+		
+	    AbstractTaskList taskList1 = new TaskList("TaskList 1", 1);
+	    AbstractTaskList taskList2 = new TaskList("TaskList 2", 2);
+	    task1.addTaskList(taskList1);
+	    task1.addTaskList(taskList2);
+	    
+	    try {
+	        Task clonedTask = task1.clone();
+	        
+	        assertEquals(task1.getTaskName(), clonedTask.getTaskName());
+	        assertEquals(task1.getTaskDescription(), clonedTask.getTaskDescription());
+	        assertEquals(task1.isActive(), clonedTask.isActive());
+	        assertEquals(task1.isRecurring(), clonedTask.isRecurring());
+	    } catch (CloneNotSupportedException e) {
+	        fail("Cloning should not throw CloneNotSupportedException");
+	    }
 	}
 	
 	/**
@@ -148,7 +164,11 @@ public class TaskTest {
 	 */
 	@Test
 	public void toStringTest() {
-		fail("Not yet implemented");
+		Task task1 = new Task("Task 1", "Description 1", true, true);
+		assertEquals("Task: " + "Task 1" + "\nDescription: " + "Description 1" + "\nRecurring: true\nActive: true", task1.toString());
+		
+		Task task2 = new Task("Task 2", "Description 2", false, true);
+		assertEquals("Task: " + "Task 2" + "\nDescription: " + "Description 2" + "\nRecurring: false\nActive: true", task2.toString());
 	}
 	
 }
