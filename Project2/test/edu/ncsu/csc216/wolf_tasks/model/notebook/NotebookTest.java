@@ -163,6 +163,7 @@ public class NotebookTest {
 		notebook.editTaskList("Aapplesauce");
 		String[] array = {ActiveTaskList.ACTIVE_TASKS_NAME, "Aapplesauce", "Healthy Habits"};
 		assertTrue(Arrays.equals(array, notebook.getTaskListsNames()));
+		notebook.editTaskList("Study for Stats");
 	}
 	
 	/**
