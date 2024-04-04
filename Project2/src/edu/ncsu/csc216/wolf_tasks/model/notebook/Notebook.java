@@ -7,6 +7,8 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 import edu.ncsu.csc216.wolf_tasks.model.util.ISortedList;
+import edu.ncsu.csc216.wolf_tasks.model.util.SortedList;
+import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 
 /**
  * Notebook class that has an ISortedList of TaskLists, one ActiveTaskList, an AbstractTaskList for the currentTaskList,
@@ -39,6 +41,8 @@ public class Notebook {
 	public Notebook(String name) {
 		setNotebookName(name);
 		setChanged(true);
+		activeTaskList = new ActiveTaskList();
+		taskLists = new SortedList<TaskList>();
 	}
 	
 	/**
@@ -64,7 +68,7 @@ public class Notebook {
 	 * @throws IllegalArgumentException if the name is null, empty, or matches the name of the active task list.
 	 */
 	private void setNotebookName(String name) {
-		if(name == null || "".equals(name) || ActiveTaskList.ACTIVE_TASKS_NAME.equals(name))
+		if(name == null || "".equals(name) || ActiveTaskList.ACTIVE_TASKS_NAME.equalsIgnoreCase(name))
 			throw new IllegalArgumentException("Invalid name.");
 		notebookName = name;
 	}
@@ -94,7 +98,16 @@ public class Notebook {
 	 * @param t specific TaskList passed
 	 */
 	public void addTaskList(TaskList t) {
-		// Method not yet implemented
+		if(ActiveTaskList.ACTIVE_TASKS_NAME.equalsIgnoreCase(t.getTaskListName()))
+			throw new IllegalArgumentException("Invalid name.");
+		try {
+			taskLists.add(t);
+		}
+		catch(IllegalArgumentException e) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
+		currentTaskList = t;
+		isChanged = true;
 	}
 	
 	/**
@@ -102,15 +115,32 @@ public class Notebook {
 	 * @return Array of strings with taskLists names
 	 */
 	public String[] getTaskListsNames() {
-		return null;
+		int numLists = taskLists.size();
+		String[] array = new String[numLists + 1];
+		array[0] = ActiveTaskList.ACTIVE_TASKS_NAME;
+		for(int i = 1; i <= numLists; i++) {
+			array[i] = taskLists.get(i - 1).getTaskListName();
+		}
+		return array;
 	}
 	
 	/**
 	 * Iterates through all the TaskLists (in sorted order) 
-	 * and add each active Task (in order of priority). Must clear the ActiveTaskList first
+	 * and adds each active Task (in order of priority). Must clear the ActiveTaskList first
 	 */
 	private void getActiveTaskList() {
-		// Method not yet implemented
+		activeTaskList = new ActiveTaskList();
+		int numLists = taskLists.size();
+		for(int i = 0; i < numLists; i++) {
+			TaskList taskList = taskLists.get(i);
+			ISwapList<Task> list = taskList.getTasks();
+			int numTasks = list.size();
+			for(int j = 0; j < numTasks; j++) {
+				Task t = list.get(j);
+				if(t.isActive())
+					activeTaskList.addTask(t);
+			}
+		}
 	}
 	
 	/**
@@ -126,7 +156,7 @@ public class Notebook {
 	 * @return AbstractTaskList that is now the current task list
 	 */
 	public AbstractTaskList getCurrentTaskList() {
-		return null;
+		return currentTaskList;
 	}
 	
 	/**

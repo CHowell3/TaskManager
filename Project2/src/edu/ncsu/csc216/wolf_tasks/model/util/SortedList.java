@@ -116,7 +116,7 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	public boolean contains(E element) {
 		ListNode<E> start = front;
 		while (start != null) {
-			if (start.data.equals(element)) {
+			if (start.data.compareTo(element) == 0) {
 				return true;
 			}
 			start = start.next;

@@ -38,13 +38,13 @@ public class NotebookTest {
 	 * Duplicate TaskList for testing
 	 * "Study for Stats"
 	 */
-	public final static TaskList LIST_S2 = new TaskList("Study for Stats", 0);
+	public final static TaskList LIST_S2 = new TaskList("Study for stats", 0);
 	
 	/**
 	 * Illegal TaskList for testing
 	 * "Active Tasks"
 	 */
-	public final static TaskList LIST_ACTIVE = new TaskList("Active Tasks", 5);
+	public final static TaskList LIST_ACTIVE = new TaskList("Active tasks", 5);
 	
 	/**
 	 * Tests the Notebook constructor
@@ -83,6 +83,9 @@ public class NotebookTest {
 		notebook.addTaskList(LIST_H);
 		e = assertThrows(IllegalArgumentException.class, () -> notebook.addTaskList(LIST_S2));
 		assertEquals("Invalid name.", e.getMessage());
+		
+		assertEquals(LIST_H, notebook.getCurrentTaskList());
+		assertTrue(notebook.isChanged());
 	}
 	
 	/**
