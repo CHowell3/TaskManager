@@ -148,7 +148,19 @@ public class Notebook {
 	 * @param taskListName String passed as parameter
 	 */
 	public void setCurrentTaskList(String taskListName) {
-		getActiveTaskList();
+		if(taskListName.equals(ActiveTaskList.ACTIVE_TASKS_NAME)) {
+			currentTaskList = activeTaskList;
+			return;
+		}
+		int numLists = taskLists.size();
+		for(int i = 0; i < numLists; i++) {
+			TaskList taskList = taskLists.get(i);
+			if(taskList.getTaskListName().equals(taskListName)) {
+				currentTaskList = taskList;
+				return;
+			}
+		}
+		currentTaskList = activeTaskList;
 	}
 	
 	/**
@@ -182,7 +194,12 @@ public class Notebook {
 	 * @param t task added to taskList
 	 */
 	public void addTask(Task t) {
-		// Method not yet implemented
+		if(currentTaskList instanceof TaskList) {
+			currentTaskList.addTask(t);
+			if(t.isActive())
+				getActiveTaskList();
+			setChanged(true);
+		}
 	}
 	
 	/**

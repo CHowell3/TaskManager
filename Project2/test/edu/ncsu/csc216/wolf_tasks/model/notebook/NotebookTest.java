@@ -8,6 +8,8 @@ import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
 
+import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
+import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 
 /**
@@ -45,6 +47,21 @@ public class NotebookTest {
 	 * "Active Tasks"
 	 */
 	public final static TaskList LIST_ACTIVE = new TaskList("Active tasks", 5);
+	
+	/** Task for testing ActiveTaskList*/
+	public static final Task TASK_A = new Task("Alice's present", "Get a present for Alice", false, false);
+
+	/** Task for testing ActiveTaskList*/
+	public static final Task TASK_B = new Task("Buy groceries", "Remember to get milk", true, true);
+
+	/** Task for testing ActiveTaskList*/
+	public static final Task TASK_C = new Task("Caroling", "Sing carols with the gang", false, true);
+
+	/** Task for testing ActiveTaskList*/
+	public static final Task TASK_D = new Task("Do decorations", "Tree, lights, and garlands", false, true);
+
+	/** Task for testing ActiveTaskList*/
+	public static final Task TASK_E = new Task("Exercise", "Treadmill and weights", true, true);
 	
 	/**
 	 * Tests the Notebook constructor
@@ -101,15 +118,17 @@ public class NotebookTest {
 	 */
 	@Test
 	public void setCurrentTaskListTest() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the getCurrentTaskList method
-	 */
-	@Test
-	public void getCurrentTaskListTest() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		notebook.addTaskList(LIST_H);
+		assertEquals(LIST_H, notebook.getCurrentTaskList());
+		notebook.addTaskList(LIST_S);
+		assertEquals(LIST_S, notebook.getCurrentTaskList());
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		assertEquals(ActiveTaskList.ACTIVE_TASKS_NAME, notebook.getCurrentTaskList().getTaskListName());
+		notebook.setCurrentTaskList("Healthy Habits");
+		assertEquals(LIST_H, notebook.getCurrentTaskList());
+		notebook.setCurrentTaskList("Not a name");
+		assertEquals(ActiveTaskList.ACTIVE_TASKS_NAME, notebook.getCurrentTaskList().getTaskListName());
 	}
 	
 	/**
@@ -133,6 +152,34 @@ public class NotebookTest {
 	 */
 	@Test
 	public void addTaskTest() {
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		notebook.addTaskList(LIST_H);
+		notebook.saveNotebook(null);
+		notebook.addTask(TASK_A);
+		
+		assertTrue(notebook.isChanged());
+		assertEquals(1, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_A, notebook.getCurrentTaskList().getTask(0));
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		assertEquals(0, notebook.getCurrentTaskList().getTasks().size());
+		
+		notebook.saveNotebook(null);
+		notebook.addTask(TASK_B);
+		assertTrue(notebook.isChanged());
+		assertEquals(0, notebook.getCurrentTaskList().getTasks().size());
+		notebook.setCurrentTaskList("Healthy Habits");
+		assertEquals(1, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_A, notebook.getCurrentTaskList().getTask(0));
+		
+		notebook.saveNotebook(null);
+		notebook.addTask(TASK_B);
+		assertTrue(notebook.isChanged());
+		assertEquals(2, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_A, notebook.getCurrentTaskList().getTask(0));
+		assertEquals(TASK_B, notebook.getCurrentTaskList().getTask(1));
+		notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
+		assertEquals(1, notebook.getCurrentTaskList().getTasks().size());
+		assertEquals(TASK_B, notebook.getCurrentTaskList().getTask(0));
 		
 	}
 	
