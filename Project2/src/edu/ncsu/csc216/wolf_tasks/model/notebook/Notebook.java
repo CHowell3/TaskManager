@@ -61,8 +61,11 @@ public class Notebook {
 	/**
 	 * Sets the passed parameter as the current notebook name
 	 * @param name of the notebook
+	 * @throws IllegalArgumentException if the name is null, empty, or matches the name of the active task list.
 	 */
 	private void setNotebookName(String name) {
+		if(name == null || "".equals(name) || ActiveTaskList.ACTIVE_TASKS_NAME.equals(name))
+			throw new IllegalArgumentException("Invalid name.");
 		notebookName = name;
 	}
 	

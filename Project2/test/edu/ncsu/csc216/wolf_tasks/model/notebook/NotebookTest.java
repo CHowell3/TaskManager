@@ -2,6 +2,7 @@ package edu.ncsu.csc216.wolf_tasks.model.notebook;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -26,6 +27,12 @@ public class NotebookTest {
 		Notebook notebook = new Notebook(NOTEBOOK_NAME);
 		assertEquals(NOTEBOOK_NAME, notebook.getNotebookName());
 		assertTrue(notebook.isChanged());
+		Exception e = assertThrows(IllegalArgumentException.class, () -> new Notebook(null));
+		assertEquals("Invalid name.", e.getMessage());
+		e = assertThrows(IllegalArgumentException.class, () -> new Notebook(""));
+		assertEquals("Invalid name.", e.getMessage());
+		e = assertThrows(IllegalArgumentException.class, () -> new Notebook("Active Tasks"));
+		assertEquals("Invalid name.", e.getMessage());
 	}
 	
 	/**
