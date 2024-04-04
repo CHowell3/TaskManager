@@ -1,5 +1,8 @@
 package edu.ncsu.csc216.wolf_tasks.model.notebook;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.junit.jupiter.api.Test;
@@ -10,11 +13,19 @@ import org.junit.jupiter.api.Test;
 public class NotebookTest {
 
 	/**
+	 * Notebook name for testing
+	 * "Super-duper Notebook"
+	 */
+	public final static String NOTEBOOK_NAME = "Super-duper Notebook";
+	
+	/**
 	 * Tests the Notebook constructor
 	 */
 	@Test
 	public void testNotebookConstructor() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		assertEquals(NOTEBOOK_NAME, notebook.getNotebookName());
+		assertTrue(notebook.isChanged());
 	}
 	
 	/**
@@ -22,23 +33,10 @@ public class NotebookTest {
 	 */
 	@Test
 	public void saveNotebookTest() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the getNotebookName method
-	 */
-	@Test
-	public void getNotebookNameTest() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the isChanged method
-	 */
-	@Test
-	public void isChangedTest() {
-		fail("Not yet implemented");
+		Notebook notebook = new Notebook(NOTEBOOK_NAME);
+		
+		assertFalse(notebook.isChanged());
+		
 	}
 	
 	/**

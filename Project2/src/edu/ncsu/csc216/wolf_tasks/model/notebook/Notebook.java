@@ -3,8 +3,10 @@ package edu.ncsu.csc216.wolf_tasks.model.notebook;
 import java.io.File;
 
 import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
+import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
+import edu.ncsu.csc216.wolf_tasks.model.util.ISortedList;
 
 /**
  * Notebook class that has an ISortedList of TaskLists, one ActiveTaskList, an AbstractTaskList for the currentTaskList,
@@ -14,11 +16,20 @@ import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
  */
 public class Notebook {
 	
-	/** name of specific name */
+	/** Name of specific notebook */
 	private String notebookName;
 	
-	/** if task/taskList in notebook is changed */
+	/** Boolean flag that keeps track of whether task/taskList in notebook has been changed since the last save */
 	private boolean isChanged;
+	
+	/** Keeps track of the current task list. */
+	private AbstractTaskList currentTaskList;
+	
+	/** List of all active tasks */
+	private ActiveTaskList activeTaskList;
+	
+	/** List of all the taskLists in this notebook (except the active task list */
+	private ISortedList<TaskList> taskLists;
 	
 	/**
 	 * Constructor of notebook class that creates the notebook with specific name, initializes isChanged to true,
@@ -27,6 +38,7 @@ public class Notebook {
 	 */
 	public Notebook(String name) {
 		setNotebookName(name);
+		setChanged(true);
 	}
 	
 	/**
@@ -69,7 +81,7 @@ public class Notebook {
 	 * @param b true or false
 	 */
 	public void setChanged(boolean b) {
-		// Method not yet implemented
+		isChanged = b;
 	}
 	
 	/**
