@@ -46,7 +46,7 @@ Don't forget to submit!
 * Go to lecture,recurring,active
 Watch lectures associated with HW7 by March 31
 # Habits,0
-* Exercise,active,recurring
+* Exercise,recurring,active
 Exercise every day. 
 Alternate between cardio and weight training
 * Floss,recurring,active

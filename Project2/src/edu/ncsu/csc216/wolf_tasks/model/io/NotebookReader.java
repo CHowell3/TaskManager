@@ -8,7 +8,6 @@ import edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
-import edu.ncsu.csc216.wolf_tasks.model.util.SortedList;
 
 /**
  * Class that reads a notebook from a file.
@@ -32,9 +31,9 @@ public class NotebookReader {
 	public static Notebook readNotebookFile(File file) {
 		try {
 			Scanner scanner = new Scanner(file);
-			scanner.useDelimiter("\\r?\\n?[# ]");
+			scanner.useDelimiter("\\r?\\n?[#]");
 			if(scanner.hasNext()) {
-				String notebookName = scanner.next().trim();
+				String notebookName = scanner.next().trim().substring(2);
 				Notebook notebook = new Notebook(notebookName);
 				while(scanner.hasNext()) {
 					try {
@@ -61,11 +60,11 @@ public class NotebookReader {
 	private static TaskList processTaskList(String taskListString){
 		try {
 			Scanner scanner = new Scanner(taskListString);
-			scanner.useDelimiter("\\r?\\n?[* ]");
+			scanner.useDelimiter("\\r?\\n?[*]");
 			if(scanner.hasNext()) {
 				Scanner lineScanner = new Scanner(scanner.nextLine());
 				lineScanner.useDelimiter(",");
-				String listName = lineScanner.next();
+				String listName = lineScanner.next().substring(1);
 				int completedInt = Integer.parseInt(lineScanner.next());
 				
 				TaskList taskList = new TaskList(listName, completedInt);
@@ -93,29 +92,35 @@ public class NotebookReader {
 		Scanner scanner = new Scanner(taskString);
 		scanner.useDelimiter("\\r?\\n?");
 		if(scanner.hasNext()) {
-			Scanner lineScanner = new Scanner(scanner.next());
-			lineScanner.useDelimiter(",");
-			String name = lineScanner.next();
+			Scanner lineScanner = new Scanner(scanner.nextLine());
+			lineScanner.useDelimiter("[,]");
+			String name = lineScanner.next().substring(1);
 			boolean recurring = false;
 			boolean active = false;
 			String description = "";
 			if(lineScanner.hasNext()) {
 				String next = lineScanner.next();
-				if(next == "recurring") {
+				if("recurring".equals(next)) {
 					recurring = true;
-					if(lineScanner.hasNext() && lineScanner.next() == "active") {
+					if(lineScanner.hasNext() && "active".equals(lineScanner.next())) {
 						active = true;
 					}
 				}
-				if(next == "active") {
+				if("active".equals(next)) {
 					active = true;
 				}
 			}
 			while(scanner.hasNext()) {
-				description += scanner.next() + "\n";
+				description += scanner.nextLine() + "\n";
 			}
-			return new Task (name, description, recurring, active);
+			if (description.length() == 0) {
+				return new Task (name, description, recurring, active);
+			}
+			String descriptionTrimed = description.substring(0, description.length() - 1);
+			scanner.close();
+			return new Task (name, descriptionTrimed, recurring, active);
 		}
+		scanner.close();
 		return null;
 	}
 }
