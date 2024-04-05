@@ -1,0 +1,12 @@
+! Super-duper Notebook
+# Healthy Habits,2
+* Alice's present
+Get a present for Alice
+* Buy groceries,recurring,active
+Remember to get milk
+* Alice's present
+Get a present for Alice
+* Buy groceries,recurring,active
+Remember to get milk
+* Caroling,active
+Sing carols with the gang

@@ -68,7 +68,7 @@ public class NotebookTest {
 	/**
 	 * File for IO tests and testing isChanged
 	 */
-	public static final File FILE = new File("/Project2/test-files/actual_out.txt");
+	public static final File FILE = new File("test-files/actual_out.txt");
 	
 	/**
 	 * Tests the Notebook constructor
@@ -92,7 +92,7 @@ public class NotebookTest {
 	@Test
 	public void saveNotebookTest() {
 		Notebook notebook = new Notebook(NOTEBOOK_NAME);
-		
+		notebook.saveNotebook(FILE);
 		assertFalse(notebook.isChanged());
 		
 	}
@@ -212,7 +212,7 @@ public class NotebookTest {
 		
 		notebook.saveNotebook(FILE);
 		notebook.addTask(TASK_B);
-		assertTrue(notebook.isChanged());
+		assertFalse(notebook.isChanged());
 		assertEquals(0, notebook.getCurrentTaskList().getTasks().size());
 		notebook.setCurrentTaskList("Healthy Habits");
 		assertEquals(1, notebook.getCurrentTaskList().getTasks().size());

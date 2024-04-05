@@ -2,6 +2,7 @@ package edu.ncsu.csc216.wolf_tasks.model.notebook;
 
 import java.io.File;
 
+import edu.ncsu.csc216.wolf_tasks.model.io.NotebookWriter;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
@@ -52,6 +53,7 @@ public class Notebook {
 	 * @param file used to save the notebook to
 	 */
 	public void saveNotebook(File file) {
+		NotebookWriter.writeNotebookFile(file, notebookName, taskLists);
 		setChanged(false);
 	}
 	
