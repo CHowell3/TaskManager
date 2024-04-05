@@ -75,7 +75,7 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	private void checkIndex(int idx) {
 		if (idx < 0 || idx >= size) {
-			throw new IndexOutOfBoundsException("Invalid index");
+			throw new IndexOutOfBoundsException("Invalid index.");
 		}
 	}
 	
