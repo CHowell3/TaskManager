@@ -165,10 +165,10 @@ public class TaskTest {
 	@Test
 	public void toStringTest() {
 		Task task1 = new Task("Task 1", "Description 1", true, true);
-		assertEquals("Task: " + "Task 1" + "\nDescription: " + "Description 1" + "\nRecurring: true\nActive: true", task1.toString());
+		assertEquals("Task 1,recurring,active\nDescription 1", task1.toString());
 		
 		Task task2 = new Task("Task 2", "Description 2", false, true);
-		assertEquals("Task: " + "Task 2" + "\nDescription: " + "Description 2" + "\nRecurring: false\nActive: true", task2.toString());
+		assertEquals("Task 2,active\nDescription 2", task2.toString());
 	}
 	
 }
