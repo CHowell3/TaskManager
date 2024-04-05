@@ -39,7 +39,11 @@ public class NotebookWriter {
 				writer.println("# " + t.getTaskListName() + "," + t.getCompletedCount());
 				int numTasks = t.getTasks().size();
 				for(int j = 0; j < numTasks; j++) {
-					writer.println("* " + t.getTask(j));
+					if(i == numLists - 1 && j == numTasks - 1) {
+						writer.print("* " + t.getTask(j));
+					}
+					else
+						writer.println("* " + t.getTask(j));
 				}
 			}
 			writer.close();
