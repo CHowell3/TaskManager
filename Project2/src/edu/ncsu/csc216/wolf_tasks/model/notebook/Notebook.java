@@ -203,7 +203,7 @@ public class Notebook {
 		if(currentTaskList instanceof ActiveTaskList)
 			throw new IllegalArgumentException("The Active Tasks list may not be deleted.");
 		int numLists = taskLists.size();
-		for(int i = 0; i < numLists - 1; i++) {
+		for(int i = 0; i <= numLists - 1; i++) {
 			TaskList t = taskLists.get(i);
 			if(t.getTaskListName().equals(currentTaskList.getTaskListName())) {
 				taskLists.remove(i);
