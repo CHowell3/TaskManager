@@ -236,9 +236,9 @@ public class NotebookTest {
 	 */
 	@Test
 	public void editTaskTest() {
-		fail("Still debugging");
 		Notebook notebook = new Notebook(NOTEBOOK_NAME);
-		notebook.addTaskList(LIST_H);
+		TaskList listH = new TaskList("Healthy Habits", 2);
+		notebook.addTaskList(listH);
 		notebook.addTask(TASK_A);
 		notebook.addTask(TASK_B);
 		notebook.addTask(TASK_C);
