@@ -55,11 +55,11 @@ public class ActiveTaskList extends AbstractTaskList {
 	@Override
 	public String[][] getTasksAsArray() {
 		int rows = super.getTasks().size();
-		String[][] array = new String[2][rows];
+		String[][] array = new String[rows][2];
 		for(int i = 0; i < rows; i++) {
 			Task task = super.getTask(i);
-			array[0][i] = task.getTaskListName();
-			array[1][i] = task.getTaskName();
+			array[i][0] = task.getTaskListName();
+			array[i][1] = task.getTaskName();
 		}
 		return array;
 	}

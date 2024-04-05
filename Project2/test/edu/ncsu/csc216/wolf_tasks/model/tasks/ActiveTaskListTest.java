@@ -75,8 +75,8 @@ public class ActiveTaskListTest {
 	public void getTasksAsArrayTest() {
 		String[][] array = new String[2][2];
 		array[0][0] = ActiveTaskList.ACTIVE_TASKS_NAME;
-		array[0][1] = ActiveTaskList.ACTIVE_TASKS_NAME;
-		array[1][0] = "Do decorations";
+		array[1][0] = ActiveTaskList.ACTIVE_TASKS_NAME;
+		array[0][1] = "Do decorations";
 		array[1][1] = "Exercise";
 		
 		ActiveTaskList activeTasks = new ActiveTaskList();

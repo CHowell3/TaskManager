@@ -57,8 +57,8 @@ public class TaskListTest {
 	public void getTasksAsArrayTest() {
 		String[][] array = new String[2][2];
 		array[0][0] = Integer.toString(1);
-		array[0][1] = Integer.toString(2);
-		array[1][0] = "Alice's present";
+		array[1][0] = Integer.toString(2);
+		array[0][1] = "Alice's present";
 		array[1][1] = "Buy groceries";
 		
 		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);

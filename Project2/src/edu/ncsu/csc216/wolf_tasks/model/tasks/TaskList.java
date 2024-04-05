@@ -25,11 +25,11 @@ public class TaskList extends AbstractTaskList implements Comparable<TaskList> {
 	@Override
 	public String[][] getTasksAsArray() {
 		int rows = super.getTasks().size();
-		String[][] array = new String[2][rows];
+		String[][] array = new String[rows][2];
 		for(int i = 0; i < rows; i++) {
 			Task task = super.getTask(i);
-			array[0][i] = Integer.toString(i + 1);
-			array[1][i] = task.getTaskName();
+			array[i][0] = Integer.toString(i + 1);
+			array[i][1] = task.getTaskName();
 		}
 		return array;
 	}
