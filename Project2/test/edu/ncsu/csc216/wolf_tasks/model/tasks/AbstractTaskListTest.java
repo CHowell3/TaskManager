@@ -1,7 +1,9 @@
 package edu.ncsu.csc216.wolf_tasks.model.tasks;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -96,7 +98,9 @@ public class AbstractTaskListTest {
 		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
 		ISwapList<Task> swapList = taskList.getTasks();
 		assertEquals(0, swapList.size());
-				
+		taskList.addTask(TASK_A);
+		assertEquals(1, taskList.getTasks().size());
+
 	}
 	
 	/**
@@ -104,7 +108,15 @@ public class AbstractTaskListTest {
 	 */
 	@Test
 	public void removeTaskTest() {
-		fail("Not yet implemented");
+		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
+        taskList.addTask(TASK_A);
+        taskList.addTask(TASK_A2);
+        taskList.addTask(TASK_B);
+        taskList.addTask(TASK_C);
+        assertEquals(TASK_B, taskList.removeTask(2));
+        taskList.removeTask(0);
+        taskList.removeTask(1);
+        assertEquals(TASK_C, taskList.getTask(0));
 	}
 	
 	/**
@@ -112,7 +124,9 @@ public class AbstractTaskListTest {
 	 */
 	@Test
 	public void getTaskTest() {
-		fail("Not yet implemented");
+		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
+		taskList.addTask(TASK_A);
+		assertEquals(TASK_A, taskList.getTask(0));
 	}
 	
 	/**
@@ -120,14 +134,11 @@ public class AbstractTaskListTest {
 	 */
 	@Test
 	public void completeTaskTest() {
-		fail("Not yet implemented");
-	}
-	
-	/**
-	 * Tests the getTasksAsArray method
-	 */
-	@Test
-	public void getTasksAsArrayTest() {
-		fail("Not yet implemented");
+		TaskList taskList = new TaskList(TASK_LIST_NAME, 0);
+		taskList.addTask(TASK_A);
+		taskList.addTask(TASK_A2);
+		assertEquals(0, taskList.getCompletedCount());
+		taskList.completeTask(TASK_A);
+		assertEquals(1, taskList.getCompletedCount());
 	}
 }
