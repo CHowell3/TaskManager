@@ -93,7 +93,10 @@ public abstract class AbstractTaskList {
 	 * @return the task removed
 	 */
 	public Task removeTask(int idx) {
-		return tasks.remove(idx);
+	    if (idx < 0 || idx >= tasks.size()) {
+	        throw new IndexOutOfBoundsException("Index out of bounds: " + idx);
+	    }
+	    return tasks.remove(idx);
 	}
 	
 	/**
