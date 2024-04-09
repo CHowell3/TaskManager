@@ -60,13 +60,13 @@ public class SwapList<E> implements ISwapList<E> {
 	 */
 	@Override
 	public E remove(int idx) {
-		checkIndex(idx);
-		E dataY = list[idx];
-		for(int i = 0; i < size - 1; i++) {
-			list[i] = list[i + 1];
-		}
-		list[--size] = null;
-		return dataY;
+	    checkIndex(idx);
+	    E dataY = list[idx];
+	    for (int i = idx; i < size - 1; i++) {
+	        list[i] = list[i + 1];
+	    }
+	    list[--size] = null;
+	    return dataY;
 	}
 	
 	/**
