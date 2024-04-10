@@ -116,7 +116,8 @@ public class AbstractTaskListTest {
         assertEquals(TASK_B, taskList.removeTask(2));
         taskList.removeTask(0);
         taskList.removeTask(1);
-        assertEquals(TASK_C, taskList.getTask(0));
+        assertEquals(TASK_A2, taskList.getTask(0));
+        taskList.removeTask(0);
 	}
 	
 	/**
