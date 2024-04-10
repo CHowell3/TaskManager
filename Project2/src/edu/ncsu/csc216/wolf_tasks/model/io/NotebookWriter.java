@@ -40,10 +40,10 @@ public class NotebookWriter {
 				int numTasks = t.getTasks().size();
 				for(int j = 0; j < numTasks; j++) {
 					if(i == numLists - 1 && j == numTasks - 1) {
-						writer.print("* " + t.getTask(j));
+						writer.print(t.getTask(j));
 					}
 					else
-						writer.println("* " + t.getTask(j));
+						writer.println(t.getTask(j));
 				}
 			}
 			writer.close();

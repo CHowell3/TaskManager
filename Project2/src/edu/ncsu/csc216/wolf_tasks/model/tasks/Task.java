@@ -146,15 +146,17 @@ public class Task implements Cloneable {
 	 * @return a String representation of the task
 	 */
 	public String toString() {
-		String string = taskName;
+		String string = "* " + taskName;
 		if (recurring) {
 			string += ",recurring";
 		} 
 		if (active) {
 			string += ",active";		
 		}
-		string += "\n";
-		string += taskDescription;
+		if(taskDescription != null && !"".equals(taskDescription)) {
+			string += "\n";
+			string += taskDescription;
+		}		
 		return string;
 	}
 	
