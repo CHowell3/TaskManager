@@ -76,7 +76,7 @@ public class SortedListTest {
 	     sortedList.add("How");
 	     assertEquals("Hello", sortedList.get(0));
 	     assertEquals("How", sortedList.get(1));
-	     assertEquals("there",sortedList.get(2));
+	     assertEquals("there", sortedList.get(2));
 	}
 	
 	/**

@@ -45,6 +45,7 @@ public class NotebookReaderTest {
 	/** Task without a name - creates notebook with a task list - invalid task isn't added. */
 	public static final File FILE_7 = new File("test-files/notebook7.txt");
 	
+	/** File to write to to check Notebook contents */
 	public static final File OUTPUT_FILE = new File("test-files/actual_out.txt");
 	
 	/**
@@ -66,6 +67,41 @@ public class NotebookReaderTest {
 		assertTrue(contentsEqual(FILE_1, OUTPUT_FILE));
 		
 		
+		Notebook n2 = NotebookReader.readNotebookFile(FILE_2);
+		assertEquals("School", n2.getNotebookName());
+		String[] array2 = {"Active Tasks", "CSC 216", "CSC 226", "Habits"};
+		assertTrue(Arrays.equals(array2, n2.getTaskListsNames()));
+		n2.saveNotebook(OUTPUT_FILE);
+		assertTrue(contentsEqual(FILE_2, OUTPUT_FILE));
+		
+		Exception e = assertThrows(IllegalArgumentException.class, () -> NotebookReader.readNotebookFile(FILE_3));
+		assertEquals("Unable to load file.", e.getMessage());
+		
+		Notebook n4 = NotebookReader.readNotebookFile(FILE_4);
+		assertEquals("Personal", n4.getNotebookName());
+		String[] array4 = {"Active Tasks"};
+		assertTrue(Arrays.equals(array4, n4.getTaskListsNames()));
+		
+		Notebook n5 = NotebookReader.readNotebookFile(FILE_5);
+		assertEquals("Personal", n5.getNotebookName());
+		assertTrue(Arrays.equals(new String[0], n5.getTaskListsNames()));
+		
+		Notebook n6 = NotebookReader.readNotebookFile(FILE_6);
+		assertEquals("Personal", n6.getNotebookName());
+		assertTrue(Arrays.equals(new String[0], n6.getTaskListsNames()));
+		
+		Notebook n7 = NotebookReader.readNotebookFile(FILE_7);
+		assertEquals("Personal", n7.getNotebookName());
+		String[] array7 = {"Habits"};
+		assertTrue(Arrays.equals(array7, n7.getTaskListsNames()));
+		n7.setCurrentTaskList("Habits");
+		ISwapList<Task> habits = n7.getCurrentTaskList().getTasks();
+		assertEquals(1, habits.size());
+		Task task = habits.get(0);
+		assertEquals("Floss", task.getTaskName());
+		assertEquals("Floss when brushing my teeth before bed! ", task.getTaskDescription());
+		assertTrue(task.isActive());
+		assertTrue(task.isRecurring());
 	}
 	
 	private boolean contentsEqual(File file1, File file2) {

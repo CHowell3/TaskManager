@@ -18,17 +18,34 @@ import java.util.Scanner;
  */
 public class NotebookWriterTest {
 	
+	/** File to write to to check output */
 	public static final File FILE = new File("test-files/actual_out.txt");
+	
+	/** File that contains what the test should write */
 	public static final File REFERENCE_FILE = new File("test-files/expected_out.txt");
 
+	/** TaskList with name "ATaskList" */
 	public static final TaskList LIST_A = new TaskList("ATaskList", 0);
+	
+	/** TaskList with name "Tasks1" */
 	public static final TaskList LIST_1 = new TaskList("Tasks1", 0);
+	
+	/** TaskList with name "Tasks2" */
 	public static final TaskList LIST_2 = new TaskList("Tasks2", 0);
 	
+	/** Task with name "Task1" */
 	public static final Task TASK_1 = new Task("Task1", "Task1Description", true, false);
+
+	/** Task with name "Task2" */
 	public static final Task TASK_2 = new Task("Task2", "Task2Description", true, true);
+
+	/** Task with name "Task3" */
 	public static final Task TASK_3 = new Task("Task3", "Task3Description", false, false);
+
+	/** Task with name "Task4" */
 	public static final Task TASK_4 = new Task("Task4", "Task4Description", false, true);
+
+	/** Task with name "Task5" */
 	public static final Task TASK_5 = new Task("Task5", "Task5Description", true, false);
 	
 	/**
