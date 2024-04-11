@@ -192,7 +192,7 @@ public class Notebook {
 				return;
 			}
 		}
-		throw new IllegalArgumentException();
+		throw new IllegalArgumentException("The Active Tasks list may not be edited.");
 	}
 	
 	/**
