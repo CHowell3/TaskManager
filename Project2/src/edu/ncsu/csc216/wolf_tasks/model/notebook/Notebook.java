@@ -181,7 +181,7 @@ public class Notebook {
 	public void editTaskList(String taskListName) {
 		if(currentTaskList instanceof ActiveTaskList)
 			throw new IllegalArgumentException("The Active Tasks list may not be edited.");
-		if(taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME) || taskListName.equals(currentTaskList.getTaskListName())) {
+		if(taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME)) {
 			throw new IllegalArgumentException("Invalid name.");
 		}
 		int numLists = taskLists.size();
@@ -193,6 +193,9 @@ public class Notebook {
 				taskLists.add(t);
 				setChanged(true);
 				return;
+			}
+			if(t.getTaskListName().equals(taskListName)) {
+				throw new IllegalArgumentException("Cannot add duplicate element.");
 			}
 		}
 		throw new IllegalArgumentException("The Active Tasks list may not be edited.");
