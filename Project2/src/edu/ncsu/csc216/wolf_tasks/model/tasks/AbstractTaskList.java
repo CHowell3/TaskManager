@@ -125,7 +125,6 @@ public abstract class AbstractTaskList {
 				taskFound = true;
 			}
 		}
-		
 		if(!taskFound) {
 			throw new IllegalArgumentException("Task not found");
 		}

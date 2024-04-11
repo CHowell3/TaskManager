@@ -136,8 +136,11 @@ public class Task implements Cloneable {
 		if(taskLists.size() == 0) {
 			throw new CloneNotSupportedException("Cannot clone.");
 		}		
-		Task task = new Task(taskName, taskDescription, active, recurring);
+		Task task = new Task(taskName, taskDescription, recurring, active);
 		task.taskLists = new SwapList<AbstractTaskList>();
+		for(int i = 0; i < taskLists.size(); i++) {
+			task.taskLists.add(this.taskLists.get(i));
+		}
 		return task;
 	}
 	
@@ -201,6 +204,7 @@ public class Task implements Cloneable {
 	public void completeTask() {
 		if(isActive()) {
 			setActive(false);
+		}
 			for (int i = 0; i < taskLists.size(); i++) {
 				taskLists.get(i).completeTask(this);
 			}
@@ -214,6 +218,5 @@ public class Task implements Cloneable {
 					System.out.println("Task cannot be cloned.");
 				}
 			}
-		}
 	}
 }

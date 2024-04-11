@@ -141,5 +141,26 @@ public class AbstractTaskListTest {
 		assertEquals(0, taskList.getCompletedCount());
 		taskList.completeTask(TASK_A);
 		assertEquals(1, taskList.getCompletedCount());
+		
+		Task task1 = new Task("Task 1", "Task 1 Description", false, false);
+		Task task2 = new Task("Task 2", "Task 2 Description", true, false);
+		Task task3 = new Task("Task 3", "Task 3 Description", true, true);
+		Task task4 = new Task("Task 4", "Task 4 Description", true, false);
+		Task task5 = new Task("Task 5", "Task 5 Description", false, true);
+		
+		taskList = new TaskList(TASK_LIST_NAME, 3);
+		taskList.addTask(task1);
+		taskList.addTask(task2);
+		taskList.addTask(task3);
+		taskList.addTask(task4);
+		taskList.addTask(task5);
+		
+		task5.completeTask();
+		task3.completeTask();
+		task1.completeTask();
+		
+		assertEquals(task2, taskList.getTask(0));
+		assertEquals(task4, taskList.getTask(1));
+		assertEquals(6, taskList.getCompletedCount());
 	}
 }
