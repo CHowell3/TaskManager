@@ -33,8 +33,12 @@ public class NotebookReader {
 			Scanner scanner = new Scanner(file);
 			scanner.useDelimiter("\\r?\\n?[#]");
 			if(scanner.hasNext()) {
-				String notebookName = scanner.next().trim().substring(2);
-				Notebook notebook = new Notebook(notebookName);
+				String next = scanner.next().trim();
+				if(!next.substring(0, 2).equals("! ")) {
+					scanner.close();
+					throw new IllegalArgumentException();
+				}
+				Notebook notebook = new Notebook(next.substring(2));
 				while(scanner.hasNext()) {
 					try {
 						notebook.addTaskList(processTaskList(scanner.next()));
