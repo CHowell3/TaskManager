@@ -69,7 +69,8 @@ public class NotebookReader {
 				
 				TaskList taskList = new TaskList(listName, completedInt);
 				while(scanner.hasNext()) {
-					taskList.addTask(processTask(taskList, scanner.next()));
+					Task t = processTask(taskList, scanner.next());
+					taskList.addTask(t);
 				}
 				scanner.close();
 				return taskList;
@@ -98,13 +99,10 @@ public class NotebookReader {
 			boolean recurring = false;
 			boolean active = false;
 			String description = "";
-			if(lineScanner.hasNext()) {
+			while(lineScanner.hasNext()) {
 				String next = lineScanner.next();
 				if("recurring".equals(next)) {
 					recurring = true;
-					if(lineScanner.hasNext() && "active".equals(lineScanner.next())) {
-						active = true;
-					}
 				}
 				if("active".equals(next)) {
 					active = true;
