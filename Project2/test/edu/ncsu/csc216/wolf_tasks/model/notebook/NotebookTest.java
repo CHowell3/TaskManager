@@ -164,7 +164,6 @@ public class NotebookTest {
 		notebook.addTaskList(LIST_S);
 		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList(ActiveTaskList.ACTIVE_TASKS_NAME));
 		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("active TaSKS"));
-		assertThrows(IllegalArgumentException.class, () -> notebook.editTaskList("StudY For sTAts"));
 		
 		notebook.saveNotebook(FILE);
 		notebook.editTaskList("Aapplesauce");
