@@ -179,11 +179,17 @@ public class Notebook {
 	 * @param taskListName that the TaskList will be changed to 
 	 */
 	public void editTaskList(String taskListName) {
-		if(currentTaskList instanceof ActiveTaskList || taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME) || taskListName.equalsIgnoreCase(currentTaskList.getTaskListName()))
+		if(currentTaskList instanceof ActiveTaskList)
 			throw new IllegalArgumentException("The Active Tasks list may not be edited.");
+		if(taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME)) {
+			throw new IllegalArgumentException("Invalid name.");
+		}
 		int numLists = taskLists.size();
 		for(int i = 0; i < numLists; i++) {
 			TaskList t = taskLists.get(i);
+			if(t.getTaskListName().equals(taskListName)) {
+				throw new IllegalArgumentException("Invalid name.");
+			}
 			if(t.getTaskListName().equals(currentTaskList.getTaskListName())) {
 				taskLists.remove(i);
 				t.setTaskListName(taskListName);

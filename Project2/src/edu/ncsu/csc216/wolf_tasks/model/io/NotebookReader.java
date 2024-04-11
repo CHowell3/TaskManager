@@ -33,8 +33,12 @@ public class NotebookReader {
 			Scanner scanner = new Scanner(file);
 			scanner.useDelimiter("\\r?\\n?[#]");
 			if(scanner.hasNext()) {
-				String notebookName = scanner.next().trim().substring(2);
-				Notebook notebook = new Notebook(notebookName);
+				String next = scanner.next().trim();
+				if(!next.substring(0, 2).equals("! ")) {
+					scanner.close();
+					throw new IllegalArgumentException();
+				}
+				Notebook notebook = new Notebook(next.substring(2));
 				while(scanner.hasNext()) {
 					try {
 						notebook.addTaskList(processTaskList(scanner.next()));
@@ -47,7 +51,7 @@ public class NotebookReader {
 			}
 			scanner.close();
 			return null;
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 	}
@@ -69,7 +73,8 @@ public class NotebookReader {
 				
 				TaskList taskList = new TaskList(listName, completedInt);
 				while(scanner.hasNext()) {
-					taskList.addTask(processTask(taskList, scanner.next()));
+					Task t = processTask(taskList, scanner.next());
+					taskList.addTask(t);
 				}
 				scanner.close();
 				return taskList;
@@ -98,13 +103,10 @@ public class NotebookReader {
 			boolean recurring = false;
 			boolean active = false;
 			String description = "";
-			if(lineScanner.hasNext()) {
+			while(lineScanner.hasNext()) {
 				String next = lineScanner.next();
 				if("recurring".equals(next)) {
 					recurring = true;
-					if(lineScanner.hasNext() && "active".equals(lineScanner.next())) {
-						active = true;
-					}
 				}
 				if("active".equals(next)) {
 					active = true;
