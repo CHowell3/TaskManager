@@ -187,15 +187,15 @@ public class Notebook {
 		int numLists = taskLists.size();
 		for(int i = 0; i < numLists; i++) {
 			TaskList t = taskLists.get(i);
+			if(t.getTaskListName().equals(taskListName)) {
+				throw new IllegalArgumentException("Invalid name.");
+			}
 			if(t.getTaskListName().equals(currentTaskList.getTaskListName())) {
 				taskLists.remove(i);
 				t.setTaskListName(taskListName);
 				taskLists.add(t);
 				setChanged(true);
 				return;
-			}
-			if(t.getTaskListName().equals(taskListName)) {
-				throw new IllegalArgumentException("Invalid name.");
 			}
 		}
 		throw new IllegalArgumentException("The Active Tasks list may not be edited.");
