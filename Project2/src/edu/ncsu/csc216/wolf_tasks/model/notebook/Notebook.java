@@ -182,7 +182,7 @@ public class Notebook {
 		if(currentTaskList instanceof ActiveTaskList)
 			throw new IllegalArgumentException("The Active Tasks list may not be edited.");
 		if(taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME) || taskListName.equals(currentTaskList.getTaskListName())) {
-			throw new IllegalArgumentException("Invalid name");
+			throw new IllegalArgumentException("Invalid name.");
 		}
 		int numLists = taskLists.size();
 		for(int i = 0; i < numLists; i++) {
