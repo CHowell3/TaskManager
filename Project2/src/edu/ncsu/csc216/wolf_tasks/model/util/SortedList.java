@@ -103,9 +103,10 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 * @param idx index that will be check in the list
 	 */
 	private void checkIndex(int idx) {
-		if(idx < 0 || idx >= size) {
-			throw new IndexOutOfBoundsException("Invalid index."); 
-		}
+	    System.out.println("Checking index: " + idx + ", current size: " + size);
+	    if (idx < 0 || idx >= size) {
+	        throw new IndexOutOfBoundsException("Invalid index.");
+	    }
 	}
 	
 	/**
