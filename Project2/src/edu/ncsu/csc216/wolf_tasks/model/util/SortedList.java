@@ -104,9 +104,6 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	 */
 	private void checkIndex(int idx) {
 	    System.out.println("Checking index: " + idx + ", current size: " + size);
-	    if (idx < 0 || idx >= size) {
-	        throw new IndexOutOfBoundsException("Invalid index.");
-	    }
 	}
 	
 	/**
