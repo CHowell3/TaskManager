@@ -180,7 +180,7 @@ public class Notebook {
 	 */
 	public void editTaskList(String taskListName) {
 		if(currentTaskList instanceof ActiveTaskList || taskListName.equalsIgnoreCase(ActiveTaskList.ACTIVE_TASKS_NAME) || taskListName.equalsIgnoreCase(currentTaskList.getTaskListName()))
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("The Active Tasks list may not be edited.");
 		int numLists = taskLists.size();
 		for(int i = 0; i < numLists; i++) {
 			TaskList t = taskLists.get(i);
@@ -192,7 +192,7 @@ public class Notebook {
 				return;
 			}
 		}
-		throw new IllegalArgumentException();
+		throw new IllegalArgumentException("The Active Tasks list may not be edited.");
 	}
 	
 	/**
