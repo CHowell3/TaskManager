@@ -202,7 +202,7 @@ public class Task implements Cloneable {
 	 * If the task is recurring, a clone of the task is added to each taskList.
 	 */
 	public void completeTask() {
-		if(isActive()) {
+		if(isActive() && !isRecurring()) {
 			setActive(false);
 		}
 			for (int i = 0; i < taskLists.size(); i++) {
