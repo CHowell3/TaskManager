@@ -51,7 +51,7 @@ public class NotebookReader {
 			}
 			scanner.close();
 			return null;
-		} catch (FileNotFoundException e) {
+		} catch (Exception e) {
 			throw new IllegalArgumentException("Unable to load file.");
 		}
 	}
