@@ -195,7 +195,7 @@ public class Notebook {
 				return;
 			}
 			if(t.getTaskListName().equals(taskListName)) {
-				throw new IllegalArgumentException("Cannot add duplicate element.");
+				throw new IllegalArgumentException("Invalid name.");
 			}
 		}
 		throw new IllegalArgumentException("The Active Tasks list may not be edited.");
