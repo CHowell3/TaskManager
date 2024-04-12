@@ -22,9 +22,9 @@
 - **Write tests for and implement TaskList (3 methods and fields)** | **Owner:** rmcantre, **Due:** 4/1, **Status:** Done
 - **Write tests for and implement ActiveTaskList (6 methods and fields)** | **Owner:** rmcantre, **Due:** 4/1, **Status:** Done
 - -
-- **Write tests for and implement Notebook (17 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Pending
-- **Write tests for and implement NotebookReader (4 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Pending
-- **Write tests for and implement NotebookWriter (2 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Pending
+- **Write tests for and implement Notebook (17 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Done
+- **Write tests for and implement NotebookReader (4 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Done
+- **Write tests for and implement NotebookWriter (2 methods and fields)** | **Owner:** rmcantre, **Due:** 4/2, **Status:** Done
 - -
 - **Ensure 60% coverage for all classes (may involve debugging)** | **Owner:** rmcantre && jchowell, **Due:** 4/3, **Status:** Complete
 - **Resolve static analysis notifications** | **Owner:** rmcantre && jchowell, **Due:** 4/3, **Status:** Complete
