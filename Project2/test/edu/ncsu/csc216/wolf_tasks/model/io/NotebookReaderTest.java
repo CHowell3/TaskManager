@@ -1,6 +1,7 @@
 package edu.ncsu.csc216.wolf_tasks.model.io;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -73,7 +74,7 @@ public class NotebookReaderTest {
 		n2.saveNotebook(OUTPUT_FILE);
 		//assertTrue(contentsEqual(FILE_2, OUTPUT_FILE)); notebook2 has active and recurring in the wrong order for one of its tasks, so this won't work
 		
-		/**
+		
 		Exception e = assertThrows(IllegalArgumentException.class, () -> NotebookReader.readNotebookFile(FILE_3));
 		assertEquals("Unable to load file.", e.getMessage());
 		
@@ -84,12 +85,14 @@ public class NotebookReaderTest {
 		
 		Notebook n5 = NotebookReader.readNotebookFile(FILE_5);
 		assertEquals("Personal", n5.getNotebookName());
-		assertTrue(Arrays.equals(new String[0], n5.getTaskListsNames()));
+		String[] array5 = {"Active Tasks"};
+		assertTrue(Arrays.equals(array5, n5.getTaskListsNames()));
 		
 		Notebook n6 = NotebookReader.readNotebookFile(FILE_6);
 		assertEquals("Personal", n6.getNotebookName());
-		assertTrue(Arrays.equals(new String[0], n6.getTaskListsNames()));
-		*/
+		String[] array6 = {"Active Tasks"};
+		assertTrue(Arrays.equals(array6, n6.getTaskListsNames()));
+		
 		
 		Notebook n7 = NotebookReader.readNotebookFile(FILE_7);
 		assertEquals("Personal", n7.getNotebookName());
