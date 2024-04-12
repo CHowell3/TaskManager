@@ -90,10 +90,11 @@ public class NotebookReaderTest {
 		Notebook n6 = NotebookReader.readNotebookFile(FILE_6);
 		assertEquals("Personal", n6.getNotebookName());
 		assertTrue(Arrays.equals(new String[0], n6.getTaskListsNames()));
+		*/
 		
 		Notebook n7 = NotebookReader.readNotebookFile(FILE_7);
 		assertEquals("Personal", n7.getNotebookName());
-		String[] array7 = {"Habits"};
+		String[] array7 = {"Active Tasks", "Habits"};
 		assertTrue(Arrays.equals(array7, n7.getTaskListsNames()));
 		n7.setCurrentTaskList("Habits");
 		ISwapList<Task> habits = n7.getCurrentTaskList().getTasks();
@@ -103,7 +104,6 @@ public class NotebookReaderTest {
 		assertEquals("Floss when brushing my teeth before bed! ", task.getTaskDescription());
 		assertTrue(task.isActive());
 		assertTrue(task.isRecurring());
-		*/
 	}
 	
 	private boolean contentsEqual(File file1, File file2) {

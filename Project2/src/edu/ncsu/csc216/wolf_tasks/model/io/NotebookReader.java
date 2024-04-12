@@ -75,8 +75,13 @@ public class NotebookReader {
 				
 				TaskList taskList = new TaskList(listName, completedInt);
 				while(scanner.hasNext()) {
-					Task t = processTask(taskList, scanner.next());
-					taskList.addTask(t);
+					try{
+						Task t = processTask(taskList, scanner.next());
+						taskList.addTask(t);
+					}
+					catch(Exception e) {
+						// Do nothing
+					}
 				}
 				scanner.close();
 				return taskList;
