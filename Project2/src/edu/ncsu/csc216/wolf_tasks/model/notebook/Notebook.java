@@ -111,6 +111,7 @@ public class Notebook {
 		}
 		currentTaskList = t;
 		isChanged = true;
+		getActiveTaskList();
 	}
 	
 	/**
