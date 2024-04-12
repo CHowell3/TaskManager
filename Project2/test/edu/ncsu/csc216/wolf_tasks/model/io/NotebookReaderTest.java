@@ -1,7 +1,6 @@
 package edu.ncsu.csc216.wolf_tasks.model.io;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
@@ -12,8 +11,6 @@ import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook;
-import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
-import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 
 /**
  * Test for NotebookReader class.

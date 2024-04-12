@@ -1,7 +1,5 @@
 package edu.ncsu.csc216.wolf_tasks.model.io;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook;
