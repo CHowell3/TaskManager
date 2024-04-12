@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.AbstractTaskList;
+import edu.ncsu.csc216.wolf_tasks.model.tasks.ActiveTaskList;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
 import edu.ncsu.csc216.wolf_tasks.model.tasks.TaskList;
 
@@ -47,6 +48,7 @@ public class NotebookReader {
 					}
 				}
 				scanner.close();
+				notebook.setCurrentTaskList(ActiveTaskList.ACTIVE_TASKS_NAME);
 				return notebook;
 			}
 			scanner.close();
