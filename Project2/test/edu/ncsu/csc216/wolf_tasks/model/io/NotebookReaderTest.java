@@ -11,6 +11,8 @@ import java.util.Scanner;
 import org.junit.jupiter.api.Test;
 
 import edu.ncsu.csc216.wolf_tasks.model.notebook.Notebook;
+import edu.ncsu.csc216.wolf_tasks.model.tasks.Task;
+import edu.ncsu.csc216.wolf_tasks.model.util.ISwapList;
 
 /**
  * Test for NotebookReader class.
