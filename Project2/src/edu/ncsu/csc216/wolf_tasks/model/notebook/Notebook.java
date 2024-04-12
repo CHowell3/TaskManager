@@ -115,7 +115,7 @@ public class Notebook {
 	}
 	
 	/**
-	 * Returns a list of task list names. The “Active Tasks” list is always listed first.
+	 * Returns a list of task list names. The ActiveTasksList is always listed first.
 	 * @return Array of strings with taskLists names
 	 */
 	public String[] getTaskListsNames() {

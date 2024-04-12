@@ -46,9 +46,9 @@ public class SortedList<E extends Comparable<E>> implements ISortedList<E> {
 	}
 	
 	/**
-	 * Method to add specific element to the sortedList. Should throw a NullPointerException with message 
-	 * “Cannot add null element.” if the parameter is null. Should throw an IllegalArgumentException 
-	 *  with message “Cannot add duplicate element” if the parameter is a duplicate of an existing element.
+	 * Method to add specific element to the sortedList. Should throw a NullPointerException with message - 
+	 * Cannot add null element - if the parameter is null. Should throw an IllegalArgumentException 
+	 *  with message - Cannot add duplicate element - if the parameter is a duplicate of an existing element.
 	 *  @param element to be added to the list
 	 */
 	public void add(E element) {
